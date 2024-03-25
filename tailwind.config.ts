@@ -26,7 +26,7 @@ const config = {
         blogBackground: "#ffffff",
         blogThickRed: "#D90416",
         blogSoftRed: "#DC3644",
-        blogBlack: "#272C3B",
+        blogBlack: "#0A0909",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

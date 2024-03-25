@@ -3,7 +3,7 @@ import ProfileBanner from "@/components/profile/profile-banner";
 
 const HomePage = () => {
   return (
-    <div className="container max-w-6xl py-6 lg:py-10">
+    <div>
       <ProfileBanner />
       <h1 className="text-3xl font-bold text-blogThickRed mt-12">
         Recent Posts

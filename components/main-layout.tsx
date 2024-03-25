@@ -10,7 +10,6 @@ const MainLayout = ({
   return (
     <div className="w-full h-full">
       <NavigationHeader />
-      <hr className=" border-solid border-1 border-blogThickRed" />
       {children}
     </div>
   );
