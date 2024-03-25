@@ -19,7 +19,7 @@ export const NavigationItem = ({
     <Link
       href={href}
       className={cn(
-        "hover:scale-125 transition",
+        "text-base hover:scale-125 transition",
         pathname === href
           ? "text-blogThickRed"
           : "hover:text-blogThickRed",

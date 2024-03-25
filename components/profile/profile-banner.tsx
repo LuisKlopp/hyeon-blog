@@ -1,15 +1,17 @@
 import Image from "next/image";
-import mainBanner from "@/public/main-banner.png";
+import MainBanner from "@/public/main-banner.png";
+import NavigationBottom from "../navigation/navigation-bottom";
 
 const ProfileBanner = () => {
   return (
     <div className="w-full">
       <Image
         alt="It's me"
-        src={mainBanner}
-        className="h-300 m-auto"
+        src={MainBanner}
+        className="h-300 m-auto min-w-[800px]"
         priority
       />
+      <NavigationBottom />
     </div>
   );
 };
