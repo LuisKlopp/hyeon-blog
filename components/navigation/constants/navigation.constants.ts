@@ -2,6 +2,17 @@ import CallIcon from "@/public/call-icon.svg";
 import MailIcon from "@/public/mail-icon.svg";
 import DiagonalArrowIcon from "@/public/diagonal-arrow-icon.svg";
 
+export interface BottomLeftItems {
+  title: string;
+  src: string;
+}
+
+export interface BottomRightItems {
+  title: string;
+  href: string;
+  src: string;
+}
+
 export const NAVIGATION_TOP_ITEMS: {
   href: string;
   title: string;

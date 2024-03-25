@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="ko" suppressHydrationWarning>
       <body
-        className={`${pretendard.className} ${dovemayo.variable} ${kyobo.variable} bg-blogBackground dark:bg-blogBlack transition`}
+        className={`${pretendard.className} ${dovemayo.variable} ${kyobo.variable} bg-blogBackground dark:bg-blogBackgroundBlack transition`}
       >
         <ThemeProvider
           attribute="class"
