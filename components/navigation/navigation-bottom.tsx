@@ -50,16 +50,18 @@ const RightBottomItems = (
 
 const NavigationBottom = () => {
   return (
-    <div className="w-full h-[60px] flex justify-between bg-blogAbsoluteBlack min-w-[800px] px-10">
-      <div className="flex items-center gap-8">
-        {NAVIGATION_LEFT_BOTTOM_ITEMS.map(
-          LeftBottomItems,
-        )}
-      </div>
-      <div className="flex items-center gap-8">
-        {NAVIGATION_RIGHT_BOTTOM_ITEMS.map(
-          RightBottomItems,
-        )}
+    <div>
+      <div className="w-[1440px] h-[60px] px-10 bg-blogAbsoluteBlack m-auto  flex justify-between">
+        <div className="flex items-center gap-8">
+          {NAVIGATION_LEFT_BOTTOM_ITEMS.map(
+            LeftBottomItems,
+          )}
+        </div>
+        <div className="flex items-center gap-8">
+          {NAVIGATION_RIGHT_BOTTOM_ITEMS.map(
+            RightBottomItems,
+          )}
+        </div>
       </div>
     </div>
   );
