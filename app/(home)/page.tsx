@@ -5,10 +5,12 @@ const HomePage = () => {
   return (
     <div>
       <ProfileBanner />
-      <h1 className="mt-12 text-3xl font-bold text-blogThickRed">
-        Most Viewed
-      </h1>
-      <PostList />
+      <div className="mx-auto w-[1240px]">
+        <h1 className="mt-12 text-4xl font-medium text-blogThickRed">
+          Most Viewed
+        </h1>
+        <PostList />
+      </div>
     </div>
   );
 };

@@ -22,7 +22,9 @@ const LeftBottomItems = (
         src={src}
         className="h-4 w-4"
       />
-      <span className="text-white">{title}</span>
+      <span className="font-light text-white">
+        {title}
+      </span>
     </div>
   );
 };
@@ -36,7 +38,10 @@ const RightBottomItems = (
       key={title}
       className="flex items-center gap-2"
     >
-      <Link href={href} className="text-white">
+      <Link
+        href={href}
+        className="font-light text-white"
+      >
         {title}
       </Link>
       <Image

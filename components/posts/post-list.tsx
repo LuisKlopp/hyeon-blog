@@ -4,7 +4,7 @@ import { posts } from "@/.velite";
 const PostList = () => {
   const displayPosts = posts;
   return (
-    <>
+    <div className="flex justify-center">
       {displayPosts?.length > 0 ? (
         <ul className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
           {displayPosts.map((post) => {
@@ -29,7 +29,7 @@ const PostList = () => {
       ) : (
         <p>Nothing to see here yet</p>
       )}
-    </>
+    </div>
   );
 };
 

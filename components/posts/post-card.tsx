@@ -18,13 +18,13 @@ export function PostCard({
   date,
 }: PostItemProps) {
   return (
-    <Link href={slug}>
-      <article className="min-h-80 rounded-lg border transition ease-linear hover:scale-105 hover:shadow-lg">
+    <Link href={slug} className="w-[400px]">
+      <div className="h-[398px] w-[400px] rounded-lg border transition ease-linear hover:scale-105 hover:shadow-lg">
         <Image
           alt="image"
           src={Swiss}
           priority
-          className="h-52 w-full rounded-t-lg"
+          className="h-[200px] rounded-t-lg"
         />
         <div className="flex min-h-44 flex-col justify-between p-4">
           <div>
@@ -46,7 +46,7 @@ export function PostCard({
             </dl>
           </div>
         </div>
-      </article>
+      </div>
     </Link>
   );
 }
