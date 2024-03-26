@@ -1,8 +1,8 @@
-import { Calendar } from "lucide-react";
 import Link from "next/link";
-import { formatDate } from "@/lib/utils";
 import Image from "next/image";
 import Swiss from "@/public/swiss.png";
+
+import { formatDate } from "@/lib/utils";
 
 interface PostItemProps {
   slug: string;
@@ -19,31 +19,34 @@ export function PostCard({
 }: PostItemProps) {
   return (
     <Link href={slug} className="w-[400px]">
-      <div className="h-[398px] w-[400px] rounded-lg border transition ease-linear hover:scale-105 hover:shadow-lg">
+      <div className="h-[398px] w-[400px] transition ease-linear hover:scale-105 hover:shadow-lg">
         <Image
           alt="image"
           src={Swiss}
           priority
           className="h-[200px] rounded-t-lg"
         />
-        <div className="flex min-h-44 flex-col justify-between p-4">
-          <div>
-            <h2 className="line-clamp-2 text-lg font-bold">
+        <div className="dark:bg-gray05 flex h-[198px] flex-col justify-between rounded-b-lg p-5">
+          <div className="flex flex-col gap-2">
+            <h2 className="line-clamp-1 text-lg font-medium leading-7 ">
               {title}
             </h2>
+            <div className="dark:text-gray01 text-gray05 line-clamp-1 text-sm font-medium leading-5">
+              {description}
+            </div>
+            <div className="dark:text-gray02 text-gray04 line-clamp-3 text-sm font-light leading-5">
+              Next.js14 버전 공부할 겸 블로그를
+              만들었는데 create next a pp명령어로
+              한번에 다 세팅하는 방법도 있겠지만
+              (공홈에서도 권장)이왕 공부할거
+              일일이 필요한 패키지를 설치하고
+              파일을...
+            </div>
           </div>
-          <div className="line-clamp-2 text-sm text-muted-foreground">
-            {description}
-          </div>
-          <div>
-            <dl>
-              <dd className="flex items-center gap-1 text-sm sm:text-base">
-                <Calendar className="h-4 w-4" />
-                <time dateTime={date}>
-                  {formatDate(date)}
-                </time>
-              </dd>
-            </dl>
+          <div className="flex items-center gap-1">
+            <span className="text-gray05 dark:text-gray01 text-sm font-light leading-4">
+              {formatDate(date)}
+            </span>
           </div>
         </div>
       </div>
