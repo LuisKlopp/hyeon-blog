@@ -1,5 +1,5 @@
 import Image from "next/image";
-import MainBanner from "@/public/main-banner.png";
+import MainBanner from "@/public/main-banner-wide.png";
 import NavigationBottom from "../navigation/navigation-bottom";
 
 const ProfileBanner = () => {
