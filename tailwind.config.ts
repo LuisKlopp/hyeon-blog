@@ -18,9 +18,16 @@ const config = {
       },
     },
     extend: {
-      fontFamily: {
-        dovemayou: ["var(--font-dovemayo)"],
-        kyobo: ["var(--font-kyobo)"],
+      fontSize: {
+        xs: "14px",
+        sm: "16px",
+        base: "18px",
+        lg: "24px",
+        xl: "36px",
+      },
+      fontWeight: {
+        light: "300",
+        medium: "500",
       },
       colors: {
         blogBackground: "#ffffff",

@@ -3,11 +3,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
 
-import {
-  dovemayo,
-  kyobo,
-  pretendard,
-} from "@/public/fonts/fonts";
+import { pretendard } from "@/public/fonts/fonts";
 import MainLayout from "@/components/main-layout";
 
 export default function RootLayout({
@@ -18,7 +14,7 @@ export default function RootLayout({
   return (
     <html lang="ko" suppressHydrationWarning>
       <body
-        className={`${pretendard.className} ${dovemayo.variable} ${kyobo.variable} bg-blogBackground dark:bg-blogBackgroundBlack transition`}
+        className={`${pretendard.className} bg-blogBackground dark:bg-blogBackgroundBlack transition`}
       >
         <ThemeProvider
           attribute="class"

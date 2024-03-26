@@ -8,7 +8,7 @@ import WhiteModeLogo from "@/public/white-mode-logo.svg";
 
 const NavigationLogo = () => {
   return (
-    <button className="min-w-[50px]">
+    <button>
       <Image
         src={BlackModeLogo}
         alt="logo"
