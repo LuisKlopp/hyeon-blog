@@ -17,7 +17,7 @@ const ThemeChanger = () => {
       onClick={handleThemeToggle}
     >
       <Sun className="h-5 w-5 dark:hidden" />
-      <Moon className="h-5 w-5 hidden dark:block" />
+      <Moon className="hidden h-5 w-5 dark:block" />
     </button>
   );
 };

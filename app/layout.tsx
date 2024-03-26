@@ -14,7 +14,7 @@ export default function RootLayout({
   return (
     <html lang="ko" suppressHydrationWarning>
       <body
-        className={`${pretendard.className} bg-blogBackground dark:bg-blogBackgroundBlack transition`}
+        className={`${pretendard.className} bg-blogBackground transition dark:bg-blogBackgroundBlack`}
       >
         <ThemeProvider
           attribute="class"

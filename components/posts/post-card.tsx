@@ -19,25 +19,25 @@ export function PostCard({
 }: PostItemProps) {
   return (
     <Link href={slug}>
-      <article className="border rounded-lg hover:scale-105 hover:shadow-lg transition ease-linear min-h-80">
+      <article className="min-h-80 rounded-lg border transition ease-linear hover:scale-105 hover:shadow-lg">
         <Image
           alt="image"
           src={Swiss}
           priority
-          className="rounded-t-lg h-52 w-full"
+          className="h-52 w-full rounded-t-lg"
         />
-        <div className="flex flex-col p-4 min-h-44 justify-between">
+        <div className="flex min-h-44 flex-col justify-between p-4">
           <div>
-            <h2 className="text-lg font-bold line-clamp-2">
+            <h2 className="line-clamp-2 text-lg font-bold">
               {title}
             </h2>
           </div>
-          <div className="text-sm text-muted-foreground line-clamp-2">
+          <div className="line-clamp-2 text-sm text-muted-foreground">
             {description}
           </div>
           <div>
             <dl>
-              <dd className="text-sm sm:text-base flex items-center gap-1">
+              <dd className="flex items-center gap-1 text-sm sm:text-base">
                 <Calendar className="h-4 w-4" />
                 <time dateTime={date}>
                   {formatDate(date)}

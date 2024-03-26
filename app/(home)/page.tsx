@@ -5,7 +5,7 @@ const HomePage = () => {
   return (
     <div>
       <ProfileBanner />
-      <h1 className="text-3xl font-bold text-blogThickRed mt-12">
+      <h1 className="mt-12 text-3xl font-bold text-blogThickRed">
         Recent Posts
       </h1>
       <PostList />

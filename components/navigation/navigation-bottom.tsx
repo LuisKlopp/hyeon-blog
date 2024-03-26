@@ -15,12 +15,12 @@ const LeftBottomItems = (
   return (
     <div
       key={title}
-      className="flex gap-2 items-center"
+      className="flex items-center gap-2"
     >
       <Image
         alt="icon-image"
         src={src}
-        className="w-4 h-4"
+        className="h-4 w-4"
       />
       <span className="text-white">{title}</span>
     </div>
@@ -34,7 +34,7 @@ const RightBottomItems = (
   return (
     <div
       key={title}
-      className="flex gap-2 items-center"
+      className="flex items-center gap-2"
     >
       <Link href={href} className="text-white">
         {title}
@@ -42,7 +42,7 @@ const RightBottomItems = (
       <Image
         alt="arrow-icon"
         src={src}
-        className="w-4 h-4"
+        className="h-4 w-4"
       />
     </div>
   );
@@ -51,7 +51,7 @@ const RightBottomItems = (
 const NavigationBottom = () => {
   return (
     <div>
-      <div className="w-[1440px] h-[60px] px-10 bg-blogAbsoluteBlack m-auto  flex justify-between">
+      <div className="m-auto flex h-[60px] w-[1440px] justify-between  bg-blogAbsoluteBlack px-10">
         <div className="flex items-center gap-8">
           {NAVIGATION_LEFT_BOTTOM_ITEMS.map(
             LeftBottomItems,

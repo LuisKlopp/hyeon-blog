@@ -8,7 +8,7 @@ const MainLayout = ({
   children,
 }: MainLayoutProps) => {
   return (
-    <div className="w-full h-full">
+    <div className="h-full w-full">
       <NavigationHeader />
       {children}
     </div>
