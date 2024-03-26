@@ -13,11 +13,14 @@ const config = {
     container: {
       center: true,
       padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
     },
     extend: {
+      screens: {
+        sm: "576px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1440px",
+      },
       fontSize: {
         xs: "14px",
         sm: "16px",
@@ -31,6 +34,9 @@ const config = {
       },
       height: {
         "15": "60px",
+      },
+      maxWidth: {
+        "2xl": "1440px",
       },
       padding: {
         "15": "60px",

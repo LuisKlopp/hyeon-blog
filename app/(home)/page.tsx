@@ -6,7 +6,7 @@ const HomePage = () => {
     <div>
       <ProfileBanner />
       <h1 className="mt-12 text-3xl font-bold text-blogThickRed">
-        Recent Posts
+        Most Viewed
       </h1>
       <PostList />
     </div>
