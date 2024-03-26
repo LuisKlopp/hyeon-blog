@@ -29,6 +29,12 @@ const config = {
         light: "300",
         medium: "500",
       },
+      height: {
+        "15": "60px",
+      },
+      padding: {
+        "15": "60px",
+      },
       colors: {
         blogBackground: "#ffffff",
         blogThickRed: "#D90416",

@@ -51,7 +51,7 @@ const RightBottomItems = (
 const NavigationBottom = () => {
   return (
     <div>
-      <div className="m-auto flex h-[60px] w-[1440px] justify-between  bg-blogAbsoluteBlack px-10">
+      <div className="m-auto flex h-15 justify-between  bg-blogAbsoluteBlack px-10">
         <div className="flex items-center gap-8">
           {NAVIGATION_LEFT_BOTTOM_ITEMS.map(
             LeftBottomItems,

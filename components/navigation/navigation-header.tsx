@@ -7,12 +7,12 @@ import NavigationLogo from "./navigation-logo";
 
 const NavigationHeader = () => {
   return (
-    <header className="flex h-20 w-full items-center justify-between">
-      <Link href="/">
+    <header className="flex h-20 w-full items-center justify-between px-15">
+      <Link href="/" className="h-[30px]">
         <NavigationLogo />
       </Link>
       <div>
-        <nav className="flex h-full w-[300px] items-center justify-between space-x-2 text-center">
+        <nav className="flex h-[19px] items-center justify-between gap-10">
           {NAVIGATION_TOP_ITEMS.map((item) => (
             <NavigationItem
               key={item.title}
