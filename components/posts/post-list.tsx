@@ -1,8 +1,10 @@
+import { handleSortPosts } from "@/lib/utils";
 import { PostCard } from "./post-card";
 import { posts } from "@/.velite";
 
 export const PostList = () => {
-  const displayPosts = posts;
+  const displayPosts = handleSortPosts(posts);
+
   return (
     <div className="mt-5 flex justify-center">
       {displayPosts?.length > 0 ? (
