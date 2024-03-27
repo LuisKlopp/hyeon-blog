@@ -8,7 +8,7 @@ export interface LucideIconProps
   size?: number;
 }
 
-const LucideIcon = ({
+export const LucideIcon = ({
   name,
   size = 24,
   ...props
@@ -31,5 +31,3 @@ const LucideIcon = ({
     />
   );
 };
-
-export default LucideIcon;

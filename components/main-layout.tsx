@@ -1,4 +1,4 @@
-import NavigationHeader from "./navigation/navigation-header";
+import { NavigationHeader } from "@/components/navigation/navigation-header";
 
 interface MainLayoutProps {
   children: React.ReactNode;

@@ -1,7 +1,7 @@
 import { PostCard } from "./post-card";
 import { posts } from "@/.velite";
 
-const PostList = () => {
+export const PostList = () => {
   const displayPosts = posts;
   return (
     <div className="mt-5 flex justify-center">
@@ -32,5 +32,3 @@ const PostList = () => {
     </div>
   );
 };
-
-export default PostList;

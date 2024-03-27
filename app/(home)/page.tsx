@@ -1,4 +1,4 @@
-import PostList from "@/components/posts/post-list";
+import { PostList } from "@/components/posts/post-list";
 import ProfileBanner from "@/components/profile/profile-banner";
 
 const HomePage = () => {

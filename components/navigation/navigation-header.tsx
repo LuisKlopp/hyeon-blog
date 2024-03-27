@@ -1,11 +1,11 @@
 import Link from "next/link";
 
-import ThemeChanger from "./theme-changer";
-import NavigationItem from "./navigation-item";
+import { ThemeChanger } from "@/components/navigation/theme-changer";
+import { NavigationItem } from "@/components/navigation/navigation-item";
 import { NAVIGATION_TOP_ITEMS } from "./constants/navigation.constants";
-import NavigationLogo from "./navigation-logo";
+import { NavigationLogo } from "@/components/navigation/navigation-logo";
 
-const NavigationHeader = () => {
+export const NavigationHeader = () => {
   return (
     <header className="flex h-20 w-full items-center justify-between px-15">
       <Link href="/" className="h-[30px]">
@@ -26,5 +26,3 @@ const NavigationHeader = () => {
     </header>
   );
 };
-
-export default NavigationHeader;

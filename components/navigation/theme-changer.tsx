@@ -5,7 +5,7 @@ import { useTheme } from "next-themes";
 import Moon from "@/public/moon-icon.svg";
 import Sun from "@/public/sun-icon.svg";
 
-const ThemeChanger = () => {
+export const ThemeChanger = () => {
   const { setTheme, theme } = useTheme();
   const isDarkTheme = theme === "dark";
 
@@ -31,5 +31,3 @@ const ThemeChanger = () => {
     </button>
   );
 };
-
-export default ThemeChanger;

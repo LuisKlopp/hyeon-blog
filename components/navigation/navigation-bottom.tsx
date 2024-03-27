@@ -53,7 +53,7 @@ const RightBottomItems = (
   );
 };
 
-const NavigationBottom = () => {
+export const NavigationBottom = () => {
   return (
     <div className="bg-blogAbsoluteBlack">
       <div className="m-auto flex h-15 max-w-2xl justify-between px-[100px]">
@@ -71,5 +71,3 @@ const NavigationBottom = () => {
     </div>
   );
 };
-
-export default NavigationBottom;

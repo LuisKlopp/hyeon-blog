@@ -19,14 +19,14 @@ export function PostCard({
 }: PostItemProps) {
   return (
     <Link href={slug} className="w-[400px]">
-      <div className="h-[398px] w-[400px] transition ease-linear hover:scale-105 hover:shadow-lg">
+      <div className="h-[398px] w-[400px] transition ease-linear hover:scale-105 hover:shadow-lg dark:border-none">
         <Image
           alt="image"
           src={Swiss}
           priority
           className="h-[200px] rounded-t-lg"
         />
-        <div className="dark:bg-gray05 flex h-[198px] flex-col justify-between rounded-b-lg p-5">
+        <div className="dark:bg-gray05 border-gray01 flex h-[198px] flex-col justify-between rounded-b-lg border p-5 dark:border-none">
           <div className="flex flex-col gap-2">
             <h2 className="line-clamp-1 text-lg font-medium leading-7 ">
               {title}

@@ -5,7 +5,7 @@ import Image from "next/image";
 import BlackModeLogo from "@/public/black-mode-logo.svg";
 import WhiteModeLogo from "@/public/white-mode-logo.svg";
 
-const NavigationLogo = () => {
+export const NavigationLogo = () => {
   return (
     <button>
       <Image
@@ -21,5 +21,3 @@ const NavigationLogo = () => {
     </button>
   );
 };
-
-export default NavigationLogo;

@@ -29,5 +29,3 @@ export const NavigationItem = ({
     </Link>
   );
 };
-
-export default NavigationItem;

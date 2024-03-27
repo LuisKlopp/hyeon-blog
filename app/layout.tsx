@@ -1,10 +1,22 @@
 import { ThemeProvider } from "@/components/theme-provider";
 
 import "@/styles/globals.css";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 
 import { pretendard } from "@/public/fonts/fonts";
 import MainLayout from "@/components/main-layout";
+
+export const viewport: Viewport = {
+  initialScale: 1,
+  width: "device-width",
+  maximumScale: 1,
+  userScalable: false,
+};
+
+export const metadata: Metadata = {
+  title: "RyuHyeon | Frontend Engineer",
+  description: "RyuHyeon의 블로그입니다.",
+};
 
 export default function RootLayout({
   children,
@@ -28,8 +40,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-export const metadata: Metadata = {
-  title: "RyuHyeon | Frontend Engineer",
-  description: "RyuHyeon의 블로그입니다.",
-};
