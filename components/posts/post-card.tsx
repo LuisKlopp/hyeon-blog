@@ -26,15 +26,15 @@ export function PostCard({
           priority
           className="h-[200px] rounded-t-lg"
         />
-        <div className="dark:bg-gray05 border-gray01 flex h-[198px] flex-col justify-between rounded-b-lg border p-5 dark:border-none">
+        <div className="flex h-[198px] flex-col justify-between rounded-b-lg border border-gray01 p-5 dark:border-none dark:bg-gray05">
           <div className="flex flex-col gap-2">
             <h2 className="line-clamp-1 text-lg font-medium leading-7 ">
               {title}
             </h2>
-            <div className="dark:text-gray01 text-gray05 line-clamp-1 text-sm font-medium leading-5">
+            <div className="line-clamp-1 text-sm font-medium leading-5 text-gray05 dark:text-gray01">
               {description}
             </div>
-            <div className="dark:text-gray02 text-gray04 line-clamp-3 text-sm font-light leading-5">
+            <div className="line-clamp-3 text-sm font-light leading-5 text-gray04 dark:text-gray02">
               Next.js14 버전 공부할 겸 블로그를
               만들었는데 create next a pp명령어로
               한번에 다 세팅하는 방법도 있겠지만
@@ -44,7 +44,7 @@ export function PostCard({
             </div>
           </div>
           <div className="flex items-center gap-1">
-            <span className="text-gray05 dark:text-gray01 text-sm font-light leading-4">
+            <span className="text-sm font-light leading-4 text-gray05 dark:text-gray01">
               {formatDate(date)}
             </span>
           </div>
