@@ -19,15 +19,13 @@ export const NavigationItem = ({
     <Link
       href={href}
       className={cn(
-        "hover:scale-125 transition",
+        "text-sm font-medium transition hover:scale-125",
         pathname === href
-          ? "text-blogThickRed"
-          : "hover:text-blogThickRed",
+          ? "text-[#dd4747]"
+          : "hover:text-[#dd4747]",
       )}
     >
       {title}
     </Link>
   );
 };
-
-export default NavigationItem;

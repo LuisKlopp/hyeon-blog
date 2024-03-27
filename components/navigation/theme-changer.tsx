@@ -1,9 +1,11 @@
 "use client";
+import Image from "next/image";
 
 import { useTheme } from "next-themes";
-import { Moon, Sun } from "lucide-react";
+import Moon from "@/public/moon-icon.svg";
+import Sun from "@/public/sun-icon.svg";
 
-const ThemeChanger = () => {
+export const ThemeChanger = () => {
   const { setTheme, theme } = useTheme();
   const isDarkTheme = theme === "dark";
 
@@ -16,10 +18,16 @@ const ThemeChanger = () => {
       type="button"
       onClick={handleThemeToggle}
     >
-      <Sun className="h-5 w-5 dark:hidden" />
-      <Moon className="h-5 w-5 hidden dark:block" />
+      <Image
+        src={Moon}
+        alt="moon-icon"
+        className="h-5 w-5 dark:hidden"
+      />
+      <Image
+        src={Sun}
+        alt="sun-icon"
+        className="hidden h-5 w-5 dark:block"
+      />
     </button>
   );
 };
-
-export default ThemeChanger;

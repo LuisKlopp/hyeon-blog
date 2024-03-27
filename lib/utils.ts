@@ -6,12 +6,12 @@ export const cn = (...inputs: ClassValue[]) => {
 };
 
 export const formatDate = (
-  input: string | number,
+  dateString: string,
 ) => {
-  const date = new Date(input);
-  return date.toLocaleDateString("en-US", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
+  const date = new Date(dateString);
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1; // 월은 0부터 시작하므로 +1 해줌
+  const day = date.getDate();
+
+  return `${year}년 ${month}월 ${day}일`;
 };

@@ -1,28 +1,28 @@
-import ThemeChanger from "./theme-changer";
-import NavigationItem from "./navigation-item";
-import { NAVIGATION_ITEMS } from "./constants/navigation.constants";
 import Link from "next/link";
 
-const NavigationHeader = () => {
+import { ThemeChanger } from "@/components/navigation/theme-changer";
+import { NavigationItem } from "@/components/navigation/navigation-item";
+import { NAVIGATION_TOP_ITEMS } from "./constants/navigation.constants";
+import { NavigationLogo } from "@/components/navigation/navigation-logo";
+
+export const NavigationHeader = () => {
   return (
-    <header className="w-full h-16 flex justify-between items-center px-8">
-      <Link href="/">
-        <span className="font-kyobo text-2xl font-black">
-          Ryu Hyeon
-        </span>
+    <header className="flex h-20 w-full items-center justify-between px-15">
+      <Link href="/" className="h-[30px]">
+        <NavigationLogo />
       </Link>
-      <nav className="flex w-[250px] h-full items-center justify-between text-center space-x-2 font-semibold gap-4 text-lg">
-        {NAVIGATION_ITEMS.map((item) => (
-          <NavigationItem
-            key={item.title}
-            href={item.href}
-            title={item.title}
-          />
-        ))}
-      </nav>
-      <ThemeChanger />
+      <div>
+        <nav className="flex h-[19px] items-center justify-between gap-10">
+          {NAVIGATION_TOP_ITEMS.map((item) => (
+            <NavigationItem
+              key={item.title}
+              href={item.href}
+              title={item.title}
+            />
+          ))}
+          <ThemeChanger />
+        </nav>
+      </div>
     </header>
   );
 };
-
-export default NavigationHeader;

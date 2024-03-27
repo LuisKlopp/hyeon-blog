@@ -13,20 +13,45 @@ const config = {
     container: {
       center: true,
       padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
     },
     extend: {
-      fontFamily: {
-        dovemayou: ["var(--font-dovemayo)"],
-        kyobo: ["var(--font-kyobo)"],
+      screens: {
+        sm: "576px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1441px",
+      },
+      fontSize: {
+        xs: "14px",
+        sm: "16px",
+        base: "18px",
+        lg: "24px",
+        xl: "36px",
+      },
+      fontWeight: {
+        light: "300",
+        medium: "500",
+      },
+      height: {
+        "15": "60px",
+      },
+      maxWidth: {
+        "2xl": "1441px",
+      },
+      padding: {
+        "15": "60px",
       },
       colors: {
         blogBackground: "#ffffff",
-        blogThickRed: "#D90416",
-        blogSoftRed: "#DC3644",
-        blogBlack: "#272C3B",
+        blogBackgroundBlack: "#0A0909",
+        blogAbsoluteBlack: "#000000",
+        blogThickRed: "#920028",
+        gray01: "#D2C9CD",
+        gray02: "#B4ABAF",
+        gray03: "#968D91",
+        gray04: "#786F73",
+        gray05: "#565053",
+        gray06: "#272426",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

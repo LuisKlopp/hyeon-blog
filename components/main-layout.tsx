@@ -1,4 +1,4 @@
-import NavigationHeader from "./navigation/navigation-header";
+import { NavigationHeader } from "@/components/navigation/navigation-header";
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -8,9 +8,8 @@ const MainLayout = ({
   children,
 }: MainLayoutProps) => {
   return (
-    <div className="w-full h-full">
+    <div className="h-full w-full">
       <NavigationHeader />
-      <hr className=" border-solid border-1 border-blogThickRed" />
       {children}
     </div>
   );

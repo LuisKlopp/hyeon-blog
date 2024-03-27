@@ -1,12 +1,12 @@
 import { PostCard } from "./post-card";
 import { posts } from "@/.velite";
 
-const PostList = () => {
+export const PostList = () => {
   const displayPosts = posts;
   return (
-    <>
+    <div className="mt-5 flex justify-center">
       {displayPosts?.length > 0 ? (
-        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+        <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
           {displayPosts.map((post) => {
             const {
               slug,
@@ -29,8 +29,6 @@ const PostList = () => {
       ) : (
         <p>Nothing to see here yet</p>
       )}
-    </>
+    </div>
   );
 };
-
-export default PostList;

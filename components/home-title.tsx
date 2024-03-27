@@ -2,14 +2,14 @@ interface HomeTitleProps {
   label: string;
 }
 
-const HomeTitle = ({ label }: HomeTitleProps) => {
+export const HomeTitle = ({
+  label,
+}: HomeTitleProps) => {
   return (
     <div>
-      <span className="text-4xl font-bold font-stylish text-blogSoftRed">
+      <span className="font-stylish text-4xl font-bold text-blogSoftRed">
         {label}
       </span>
     </div>
   );
 };
-
-export default HomeTitle;

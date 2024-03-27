@@ -1,15 +1,5 @@
 import localFont from "next/font/local";
 
-export const dovemayo = localFont({
-  src: "Dovemayo_gothic.woff2",
-  variable: "--font-dovemayo",
-});
-
-export const kyobo = localFont({
-  src: "KyoboHandwriting2019.otf",
-  variable: "--font-kyobo",
-});
-
 export const pretendard = localFont({
   src: [
     {
