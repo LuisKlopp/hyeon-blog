@@ -1,3 +1,4 @@
+import { type Post } from "@/.velite";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -14,4 +15,15 @@ export const formatDate = (
   const day = date.getDate();
 
   return `${year}년 ${month}월 ${day}일`;
+};
+
+export const handleSortPosts = (
+  posts: Post[],
+) => {
+  return posts.sort((a, b) => {
+    return (
+      new Date(b.date).getTime() -
+      new Date(a.date).getTime()
+    );
+  });
 };
