@@ -18,8 +18,8 @@ export function PostCard({
   date,
 }: PostItemProps) {
   return (
-    <Link href={slug} className="w-[400px]">
-      <div className="h-[398px] w-[400px] transition ease-linear hover:scale-105 hover:shadow-lg dark:border-none">
+    <Link href={slug} className="w-full">
+      <div className="w-full transition ease-linear hover:scale-105 hover:shadow-lg dark:border-none">
         <Image
           alt="image"
           src={Swiss}
