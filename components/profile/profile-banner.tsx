@@ -15,7 +15,7 @@ const ProfileBanner = () => {
       <Image
         alt="It's me"
         src={MainBanner}
-        className="m-auto min-w-[800px] xl:hidden"
+        className="m-auto xl:hidden"
         priority
       />
       <NavigationBottom />
