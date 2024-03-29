@@ -15,12 +15,12 @@ const LeftBottomItems = (
   return (
     <div
       key={title}
-      className="flex items-center gap-2"
+      className="flex items-center gap-2 md:text-sm"
     >
       <Image
         alt="icon-image"
         src={src}
-        className="h-4 w-4"
+        className="h-3 w-3 sm:h-4 sm:w-4"
       />
       <span className="font-light text-white">
         {title}
@@ -40,14 +40,14 @@ const RightBottomItems = (
     >
       <Link
         href={href}
-        className="font-light text-white"
+        className="font-light text-white md:text-sm"
       >
         {title}
       </Link>
       <Image
         alt="arrow-icon"
         src={src}
-        className="h-4 w-4"
+        className="h-3 w-3 sm:h-4 sm:w-4"
       />
     </div>
   );
@@ -56,13 +56,13 @@ const RightBottomItems = (
 export const NavigationBottom = () => {
   return (
     <div className="bg-blogAbsoluteBlack">
-      <div className="m-auto flex h-15 max-w-2xl justify-between px-[100px]">
-        <div className="flex items-center gap-8">
+      <div className="m-auto flex h-20 max-w-2xl justify-between px-4 sm:h-15 md:px-[100px]">
+        <div className="flex flex-col justify-evenly sm:flex-row sm:items-center sm:gap-4 md:gap-8">
           {NAVIGATION_LEFT_BOTTOM_ITEMS.map(
             LeftBottomItems,
           )}
         </div>
-        <div className="flex items-center gap-8">
+        <div className="flex flex-col items-center justify-evenly sm:flex-row sm:gap-4 md:gap-8">
           {NAVIGATION_RIGHT_BOTTOM_ITEMS.map(
             RightBottomItems,
           )}

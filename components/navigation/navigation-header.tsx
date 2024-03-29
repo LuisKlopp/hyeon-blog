@@ -10,7 +10,7 @@ export const NavigationHeader = () => {
     <header className="flex h-20 w-full items-center justify-between px-4 text-center sm:px-10">
       <Link
         href="/"
-        className="h-[20px] w-[100px] min-w-[100px] sm:w-[160px]"
+        className="h-5 w-28 min-w-28 sm:w-[160px]"
       >
         <NavigationLogo />
       </Link>
