@@ -18,13 +18,13 @@ export function PostCard({
   date,
 }: PostItemProps) {
   return (
-    <Link href={slug} className="w-[400px]">
-      <div className="h-[398px] w-[400px] transition ease-linear hover:scale-105 hover:shadow-lg dark:border-none">
+    <Link href={slug} className="w-full">
+      <div className="w-full max-w-[400px] transition ease-linear hover:scale-105 hover:shadow-lg dark:border-none">
         <Image
           alt="image"
           src={Swiss}
           priority
-          className="h-[200px] rounded-t-lg"
+          className="h-[200px] w-full rounded-t-lg"
         />
         <div className="flex h-[198px] flex-col justify-between rounded-b-lg border border-gray01 p-5 dark:border-none dark:bg-gray05">
           <div className="flex flex-col gap-2">
