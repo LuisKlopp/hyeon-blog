@@ -5,10 +5,7 @@ const HomePage = () => {
   return (
     <div>
       <ProfileBanner />
-      <div className="lgx:mx-[100px] lg:mx-[10px]">
-        <h1 className="mt-12 text-xl font-medium">
-          Most Viewed
-        </h1>
+      <div className="lg:mx-[10px] lgx:mx-[100px]">
         <PostList />
       </div>
     </div>
