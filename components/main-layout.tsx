@@ -9,7 +9,7 @@ const MainLayout = ({
   children,
 }: MainLayoutProps) => {
   return (
-    <div className="h-full w-full">
+    <div>
       <NavigationHeader />
       {children}
       <ScrollToTop />
