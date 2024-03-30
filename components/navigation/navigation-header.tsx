@@ -7,7 +7,7 @@ import { NavigationLogo } from "@/components/navigation/navigation-logo";
 
 export const NavigationHeader = () => {
   return (
-    <header className="flex h-20 w-full items-center justify-between px-4 text-center sm:px-10">
+    <header className="sticky top-0 z-10 flex h-20 w-full items-center justify-between bg-blogBackground px-4 text-center dark:bg-blogBackgroundBlack sm:px-10">
       <Link
         href="/"
         className="h-5 w-28 min-w-28 sm:w-[160px]"
