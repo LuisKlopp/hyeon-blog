@@ -1,11 +1,17 @@
+"use client";
+
 import Link from "next/link";
+import { useParams } from "next/navigation";
 
 import { ThemeChanger } from "@/components/navigation/theme-changer";
 import { NavigationItem } from "@/components/navigation/navigation-item";
 import { NAVIGATION_TOP_ITEMS } from "./constants/navigation.constants";
 import { NavigationLogo } from "@/components/navigation/navigation-logo";
+import { ProgressBar } from "@/components/progress-bar";
 
 export const NavigationHeader = () => {
+  const { slug } = useParams();
+  console.log(slug);
   return (
     <header className="sticky top-0 z-10 flex h-20 w-full items-center justify-between bg-blogBackground px-4 text-center dark:bg-blogBackgroundBlack sm:px-10">
       <Link
@@ -25,7 +31,12 @@ export const NavigationHeader = () => {
           ))}
           <ThemeChanger />
         </nav>
-      </div>
+      </div>{" "}
+      {slug && (
+        <div className="absolute bottom-0 left-0 w-full bg-gray04">
+          <ProgressBar />
+        </div>
+      )}
     </header>
   );
 };
