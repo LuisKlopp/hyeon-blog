@@ -3,11 +3,16 @@ import { TagBox } from "@/components/tag-box";
 
 const BlogPage = async () => {
   return (
-    <div className="flex flex-col items-center gap-10 py-6 lg:py-10">
+    <div className="mx-6 flex flex-col items-center gap-10 py-6 lg:py-10">
       <h1 className="text-xl font-medium">
         Blog
       </h1>
-      <TagBox />
+      <div className="flex gap-3">
+        <TagBox />
+        <TagBox />
+        <TagBox />
+        <TagBox />
+      </div>
       <PostList />
     </div>
   );
