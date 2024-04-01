@@ -19,12 +19,14 @@ export const PostList = () => {
                 date,
                 title,
                 description,
+                detail,
               } = post;
               return (
                 <li key={slug}>
                   <PostCard
                     slug={slug}
                     date={date}
+                    detail={detail}
                     title={title}
                     description={description}
                   />

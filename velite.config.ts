@@ -27,6 +27,7 @@ const posts = defineCollection({
       slug: s.path(),
       title: s.string().max(99),
       description: s.string().max(999).optional(),
+      detail: s.string().max(999).optional(),
       date: s.isodate(),
       published: s.boolean().default(true),
       body: s.mdx(),

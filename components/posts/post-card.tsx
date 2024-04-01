@@ -8,6 +8,7 @@ interface PostItemProps {
   slug: string;
   title: string;
   description?: string;
+  detail?: string;
   date: string;
 }
 
@@ -16,6 +17,7 @@ export function PostCard({
   title,
   description,
   date,
+  detail,
 }: PostItemProps) {
   return (
     <Link href={slug} className="w-full">
@@ -35,12 +37,7 @@ export function PostCard({
               {description}
             </div>
             <div className="line-clamp-3 text-sm font-light leading-5 text-gray04 dark:text-gray02">
-              Next.js14 버전 공부할 겸 블로그를
-              만들었는데 create next a pp명령어로
-              한번에 다 세팅하는 방법도 있겠지만
-              (공홈에서도 권장)이왕 공부할거
-              일일이 필요한 패키지를 설치하고
-              파일을...
+              {detail}
             </div>
           </div>
           <div className="flex items-center gap-1">
