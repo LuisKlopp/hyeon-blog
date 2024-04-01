@@ -41,7 +41,6 @@ export const ProgressBar = () => {
       <style jsx>{`
         .progressBar {
           height: 6px;
-          border-radius: 0px 2px 0px 0px;
           background: #920028;
         }
       `}</style>

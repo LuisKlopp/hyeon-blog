@@ -31,7 +31,7 @@ export const NavigationHeader = () => {
           ))}
           <ThemeChanger />
         </nav>
-      </div>
+      </div>{" "}
       {slug && (
         <div className="absolute bottom-0 left-0 w-full bg-gray04">
           <ProgressBar />
