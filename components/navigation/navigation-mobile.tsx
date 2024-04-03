@@ -30,7 +30,7 @@ export const NavigationMobile = ({
           </Link>
         );
       })}
-      <div className="flex gap-2">
+      <div className="flex items-center gap-2">
         <Link
           href="https://github.com/LuisKlopp"
           target="_blank"
@@ -40,6 +40,7 @@ export const NavigationMobile = ({
         <Image
           src={DiagonalArrowIcon}
           alt="arrow-image"
+          className="h-3 w-3"
         />
       </div>
     </div>

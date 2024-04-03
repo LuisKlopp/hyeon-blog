@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 import { useParams } from "next/navigation";
 
 import { ThemeChanger } from "@/components/navigation/theme-changer";
@@ -13,10 +14,17 @@ import { NavigationLogo } from "@/components/navigation/navigation-logo";
 import { ProgressBar } from "@/components/progress-bar";
 
 import Hamburger from "@/public/hamburger.svg";
+import HamburgerBlack from "@/public/hamburger-black.svg";
 
 export const NavigationHeader = () => {
   const { slug } = useParams();
   const [isToggle, setIsToggle] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const { theme } = useTheme();
+  const isDarkTheme = theme === "dark";
+
+  useEffect(() => setIsLoaded(true), []);
+
   return (
     <header className="sticky top-0 z-10 flex h-20 w-full items-center justify-between bg-blogBackground px-4 text-center dark:bg-blogBackgroundBlack sm:px-10">
       <Link
@@ -37,7 +45,11 @@ export const NavigationHeader = () => {
           <ThemeChanger />
           <Image
             alt="hamburger"
-            src={Hamburger}
+            src={
+              isLoaded && isDarkTheme
+                ? Hamburger
+                : HamburgerBlack
+            }
             className="h-auto w-auto cursor-pointer sm:hidden"
             onClick={() =>
               setIsToggle((prev) => !prev)
