@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useParams } from "next/navigation";
 
 import { ThemeChanger } from "@/components/navigation/theme-changer";
@@ -9,9 +10,10 @@ import { NAVIGATION_TOP_ITEMS } from "./constants/navigation.constants";
 import { NavigationLogo } from "@/components/navigation/navigation-logo";
 import { ProgressBar } from "@/components/progress-bar";
 
+import Hamburger from "@/public/hamburger.svg";
+
 export const NavigationHeader = () => {
   const { slug } = useParams();
-  console.log(slug);
   return (
     <header className="sticky top-0 z-10 flex h-20 w-full items-center justify-between bg-blogBackground px-4 text-center dark:bg-blogBackgroundBlack sm:px-10">
       <Link
@@ -30,6 +32,11 @@ export const NavigationHeader = () => {
             />
           ))}
           <ThemeChanger />
+          <Image
+            alt="hamburger"
+            src={Hamburger}
+            className="h-auto w-auto sm:hidden"
+          />
         </nav>
       </div>{" "}
       {slug && (

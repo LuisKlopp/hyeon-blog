@@ -1,4 +1,5 @@
 import Image from "next/image";
+import MobileBanner from "@/public/mobile-banner.png";
 import MainBannerWide from "@/public/main-banner-wide.png";
 import MainBanner from "@/public/main-banner.png";
 import { NavigationBottom } from "../navigation/navigation-bottom";
@@ -8,14 +9,20 @@ const ProfileBanner = () => {
     <div className="w-full">
       <Image
         alt="It's me"
-        src={MainBannerWide}
-        className="m-auto hidden w-full xl:block"
+        src={MobileBanner}
+        className="m-auto w-full sm:hidden"
         priority
       />
       <Image
         alt="It's me"
         src={MainBanner}
-        className="m-auto xl:hidden"
+        className="m-auto hidden sm:block xl:hidden"
+        priority
+      />
+      <Image
+        alt="It's me"
+        src={MainBannerWide}
+        className="m-auto hidden w-full xl:block"
         priority
       />
       <NavigationBottom />
