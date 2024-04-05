@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import "@/styles/mdx.css";
 import { Metadata } from "next";
 import { siteConfig } from "@/config/site";
+import { PostCategory } from "@/components/posts/post-category";
 interface PostPageProps {
   params: {
     slug: string[];
@@ -59,7 +60,8 @@ export default async function PostPage({
   }
 
   return (
-    <article className="container prose mx-auto max-w-3xl py-6 dark:prose-invert">
+    <article className="container prose relative mx-auto max-w-3xl py-10 dark:prose-invert">
+      <PostCategory />
       <h1 className="mb-2">{post.title}</h1>
       {post.description ? (
         <p className="mt-0 text-xl text-gray03">
