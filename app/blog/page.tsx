@@ -7,7 +7,7 @@ const BlogPage = async () => {
       <h1 className="text-xl font-medium">
         Blog
       </h1>
-      <div className="flex gap-3">
+      <div className="flex gap-[14px]">
         <TagBox />
         <TagBox />
         <TagBox />

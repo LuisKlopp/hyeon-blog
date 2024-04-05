@@ -20,7 +20,7 @@ const LeftBottomItems = (
       <Image
         alt="icon-image"
         src={src}
-        className="h-3 w-3 sm:h-4 sm:w-4"
+        className="h-auto w-auto sm:h-4 sm:w-4"
       />
       <span className="font-light text-white">
         {title}
@@ -41,13 +41,14 @@ const RightBottomItems = (
       <Link
         href={href}
         className="font-light text-white md:text-sm"
+        target="_blank"
       >
         {title}
       </Link>
       <Image
         alt="arrow-icon"
         src={src}
-        className="h-3 w-3 sm:h-4 sm:w-4"
+        className="h-auto w-auto sm:h-4 sm:w-4"
       />
     </div>
   );
