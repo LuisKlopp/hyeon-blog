@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import { slug } from "github-slugger";
 import Link from "next/link";
 
@@ -15,12 +16,18 @@ export const Tag = ({
 }: TagProps) => {
   return (
     <Link
-      className="w-fit rounded-lg border border-gray05 px-4 py-1 tracking-normal text-gray05  hover:cursor-pointer hover:bg-blogThickRed  hover:text-white dark:border-gray03 dark:text-gray03 hover:dark:text-white"
+      className={cn(
+        "w-fit rounded-lg border px-4 py-1 tracking-normal text-gray05 hover:cursor-pointer hover:bg-blogThickRed hover:text-white dark:border-gray03 dark:text-gray03 hover:dark:text-white",
+        {
+          "bg-blogThickRed text-white dark:text-white":
+            current === true,
+        },
+      )}
       href={`/tags/${slug(tag)}`}
     >
       <span className="text-xs font-light">
         {tag}
-        {count ? `(${count})` : null}
+        {count ? ` (${count})` : null}
       </span>
     </Link>
   );

@@ -56,6 +56,7 @@ const TagPage = ({ params }: TagPageProps) => {
             tag={tag}
             key={tag}
             count={tags[tag]}
+            current={title === tag}
           />
         ))}
       </div>
