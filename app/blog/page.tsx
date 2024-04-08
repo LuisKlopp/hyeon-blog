@@ -15,7 +15,15 @@ const BlogPage = async () => {
       <h1 className="text-xl font-medium">
         Blog
       </h1>
-      <div className="flex gap-[14px]"></div>
+      <div className="flex gap-[14px]">
+        {sortedTags.map((tag) => (
+          <Tag
+            tag={tag}
+            key={tag}
+            count={tags[tag]}
+          />
+        ))}
+      </div>
       <PostList />
     </div>
   );

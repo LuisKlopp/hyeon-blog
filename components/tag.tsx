@@ -1,8 +1,22 @@
-export const Tag = () => {
+interface TagProps {
+  tag: string;
+  current?: boolean;
+  count?: number;
+  className?: string;
+}
+
+export const Tag = ({
+  tag,
+  current,
+  count,
+}: TagProps) => {
   return (
-    <div className="rounded-lg border border-gray05 px-4 py-1 tracking-normal dark:border-gray03">
-      <span className="text-xs font-light text-gray05 dark:text-gray03">
-        Mark up
+    <div
+      className={`rounded-lg border border-gray05 px-4 py-1 tracking-normal text-gray05 hover:cursor-pointer hover:bg-blogThickRed  hover:text-white dark:border-gray03  dark:text-gray03 hover:dark:text-white`}
+    >
+      <span className="text-xs font-light">
+        {tag}
+        {`(${count})`}
       </span>
     </div>
   );
