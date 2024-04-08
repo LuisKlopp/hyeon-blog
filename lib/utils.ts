@@ -1,5 +1,6 @@
 import { Post } from "@/.velite";
 import { type ClassValue, clsx } from "clsx";
+import { slug } from "github-slugger";
 import { twMerge } from "tailwind-merge";
 
 export const cn = (...inputs: ClassValue[]) => {
@@ -44,4 +45,17 @@ export const sortTagsByCount = (
   return Object.keys(tags).sort(
     (a, b) => tags[b] - tags[a],
   );
+};
+
+export const getPostsByTagSlug = (
+  posts: Post[],
+  tag: string,
+) => {
+  return posts.filter((post) => {
+    if (!post.tags) return false;
+    const slugifiedTags = post.tags.map((tag) =>
+      slug(tag),
+    );
+    return slugifiedTags.includes(tag);
+  });
 };
