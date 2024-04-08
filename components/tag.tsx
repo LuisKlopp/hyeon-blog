@@ -11,12 +11,10 @@ export const Tag = ({
   count,
 }: TagProps) => {
   return (
-    <div
-      className={`rounded-lg border border-gray05 px-4 py-1 tracking-normal text-gray05 hover:cursor-pointer hover:bg-blogThickRed  hover:text-white dark:border-gray03  dark:text-gray03 hover:dark:text-white`}
-    >
+    <div className="w-fit rounded-lg border border-gray05 px-4 py-1 tracking-normal text-gray05  hover:cursor-pointer hover:bg-blogThickRed  hover:text-white dark:border-gray03 dark:text-gray03 hover:dark:text-white">
       <span className="text-xs font-light">
         {tag}
-        {`(${count})`}
+        {count ? `(${count})` : null}
       </span>
     </div>
   );
