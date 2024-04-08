@@ -20,15 +20,15 @@ export function PostCard({
   detail,
 }: PostItemProps) {
   return (
-    <Link href={slug} className="w-full">
-      <div className="max-w-[400px] transition ease-linear hover:scale-105 hover:shadow-lg dark:border-none">
+    <Link href={"/" + slug} className="w-full">
+      <div className="shadow-custom max-w-[400px] transition ease-linear hover:scale-105 hover:shadow-lg dark:border-none">
         <Image
           alt="image"
           src={Swiss}
           priority
           className="h-[200px] w-full rounded-t-lg"
         />
-        <div className="flex h-[198px] flex-col justify-between rounded-b-lg border border-gray01 p-5 dark:border-none dark:bg-gray06">
+        <div className="flex h-[198px] flex-col justify-between overflow-hidden rounded-b-lg p-5 dark:border-none dark:bg-gray06">
           <div className="flex flex-col gap-2">
             <h2 className="line-clamp-1 text-lg font-medium leading-7 ">
               {title}

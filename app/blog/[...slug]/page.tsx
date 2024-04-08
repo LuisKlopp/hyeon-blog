@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import "@/styles/mdx.css";
 import { Metadata } from "next";
 import { siteConfig } from "@/config/site";
-import { PostCategory } from "@/components/posts/post-category";
+import { Tag } from "@/components/tag";
 interface PostPageProps {
   params: {
     slug: string[];
@@ -61,7 +61,16 @@ export default async function PostPage({
 
   return (
     <article className="container prose relative mx-auto max-w-3xl py-10 dark:prose-invert">
-      <PostCategory />
+      <div className="absolute left-[-196px] top-[40px] hidden flex-col gap-[10px] lgx:flex">
+        <span className="font-medium leading-5">
+          카테고리
+        </span>
+        <div className="flex flex-col gap-[14px]">
+          {post.tags?.map((tag) => (
+            <Tag tag={tag} key={tag} />
+          ))}
+        </div>
+      </div>
       <h1 className="mb-2">{post.title}</h1>
       {post.description ? (
         <p className="mt-0 text-xl text-gray03">
