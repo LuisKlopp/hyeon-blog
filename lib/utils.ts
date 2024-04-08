@@ -1,4 +1,4 @@
-import { type Post } from "@/.velite";
+import { Post } from "@/.velite";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -26,4 +26,22 @@ export const handleSortPosts = (
       new Date(a.date).getTime()
     );
   });
+};
+
+export const getAllTags = (posts: Post[]) => {
+  const tags: Record<string, number> = {};
+  posts.forEach((post) => {
+    post.tags?.forEach((tag) => {
+      tags[tag] = (tags[tag] ?? 0) + 1;
+    });
+  });
+  return tags;
+};
+
+export const sortTagsByCount = (
+  tags: Record<string, number>,
+) => {
+  return Object.keys(tags).sort(
+    (a, b) => tags[b] - tags[a],
+  );
 };
