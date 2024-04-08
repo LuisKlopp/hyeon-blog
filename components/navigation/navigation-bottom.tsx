@@ -34,23 +34,21 @@ const RightBottomItems = (
 ) => {
   const { title, href, src } = item;
   return (
-    <div
+    <Link
       key={title}
       className="flex items-center gap-2"
+      href={href}
+      target="_blank"
     >
-      <Link
-        href={href}
-        className="font-light text-white md:text-sm"
-        target="_blank"
-      >
+      <div className="font-light text-white md:text-sm">
         {title}
-      </Link>
+      </div>
       <Image
         alt="arrow-icon"
         src={src}
         className="h-auto w-auto sm:h-4 sm:w-4"
       />
-    </div>
+    </Link>
   );
 };
 

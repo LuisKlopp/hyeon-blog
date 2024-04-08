@@ -17,9 +17,9 @@ export const Tag = ({
   return (
     <Link
       className={cn(
-        "w-fit rounded-lg border px-4 py-1 tracking-normal text-gray05 hover:cursor-pointer hover:bg-blogThickRed hover:text-white dark:border-gray03 dark:text-gray03 hover:dark:text-white",
+        "shadow-custom w-fit rounded-lg border px-4 py-1 tracking-normal text-gray05 no-underline hover:cursor-pointer hover:border-none hover:bg-blogThickRed hover:text-white dark:border-gray03 dark:text-gray03 hover:dark:text-white",
         {
-          "bg-blogThickRed text-white dark:text-white":
+          "border-none bg-blogThickRed text-white dark:text-white":
             current === true,
         },
       )}
