@@ -1,5 +1,5 @@
 import { PostList } from "@/components/posts/post-list";
-import { TagBox } from "@/components/tag-box";
+import { Tag } from "@/components/tag";
 
 const BlogPage = async () => {
   return (
@@ -8,10 +8,10 @@ const BlogPage = async () => {
         Blog
       </h1>
       <div className="flex gap-[14px]">
-        <TagBox />
-        <TagBox />
-        <TagBox />
-        <TagBox />
+        <Tag />
+        <Tag />
+        <Tag />
+        <Tag />
       </div>
       <PostList />
     </div>

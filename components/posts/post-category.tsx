@@ -1,4 +1,4 @@
-import { TagBox } from "../tag-box";
+import { Tag } from "@/components/tag";
 
 export const PostCategory = () => {
   return (
@@ -7,10 +7,10 @@ export const PostCategory = () => {
         카테고리
       </span>
       <div className="flex flex-col gap-[14px]">
-        <TagBox />
-        <TagBox />
-        <TagBox />
-        <TagBox />
+        <Tag />
+        <Tag />
+        <Tag />
+        <Tag />
       </div>
     </div>
   );
