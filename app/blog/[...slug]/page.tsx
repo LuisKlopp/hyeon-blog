@@ -8,6 +8,7 @@ import { siteConfig } from "@/config/site";
 import { Tag } from "@/components/tag";
 import { CommentInput } from "@/components/comments/comment-input";
 import { CommentTextarea } from "@/components/comments/comment-textarea";
+import { CommentButton } from "@/components/comments/comment-button";
 interface PostPageProps {
   params: {
     slug: string[];
@@ -84,12 +85,13 @@ export default async function PostPage({
         <MDXContent code={post.body} />
       </div>
       <hr className="my-[10px] border border-gray06" />
-      <span className="mt-[10px] text-base font-medium leading-8 text-blogAbsoluteBlack">
+      <span className="mt-[10px] text-base font-medium leading-8 text-blogAbsoluteBlack dark:text-white">
         3개의 댓글
       </span>
-      <div className="mt-5 flex flex-col gap-[14px]">
+      <div className="mt-5 flex flex-col items-end gap-[14px]">
         <CommentInput />
         <CommentTextarea />
+        <CommentButton />
       </div>
     </article>
   );

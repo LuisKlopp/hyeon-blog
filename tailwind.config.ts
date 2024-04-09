@@ -54,6 +54,7 @@ const config = {
         gray04: "#786F73",
         gray05: "#565053",
         gray06: "#272426",
+        gray07: "#0A0909",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
