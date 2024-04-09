@@ -11,6 +11,10 @@ body,
   scroll-behavior: smooth;
 }
 
+pre > code > span {
+  font-size: 14px;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

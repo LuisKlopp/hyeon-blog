@@ -78,7 +78,7 @@ export default async function PostPage({
         </p>
       ) : null}
       <hr className="my-4" />
-      <div className="text-blogAbsoluteBlack dark:text-gray03">
+      <div className="tracking-tight text-blogAbsoluteBlack dark:text-gray03">
         <MDXContent code={post.body} />
       </div>
     </article>

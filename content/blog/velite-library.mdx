@@ -1,7 +1,168 @@
 ---
 title: 내가 Velite를 사용한 이유
 description: markdown 라이브러리 Velite를 알아보자.
-detail: contentStartDate
+detail: Velite는 Markdown / MDX, YAML, JSON 또는 기타 파일을 앱의 데이터 계층으로 변환한다.
 date: 2024-03-30
+tags: ["Velite", "Markdown", "Nextjs14"]
 published: true
 ---
+
+MarkDown 블로그를 꼭 만들어보고 싶어서  
+여기저기 서치하다가 **Velite**라는 라이브러리를 발견했다.
+
+## **Velite**는 무엇이고 왜 썼을까?
+
+공식문서에서 확인해보자.  
+https://velite.js.org/guide/introduction
+
+**Velite** is a tool for building type-safe data layer,  
+turn Markdown / MDX, YAML, JSON, or other files into app's data layer with Zod schema.  
+Velite는 Markdown / MDX, YAML, JSON 또는 기타 파일을  
+앱의 데이터 계층으로 변환한다.
+
+보통 MDX파일을 웹에서 보기 쉽게 만들어주기 위한 도구로 쓰인다.
+
+이 분야로 유명한 **contentLayer**라는 라이브러리가 있었으나  
+지원이 중단되었다.
+
+contentLayer의 정신을 이어받은 **velite의 장점**은 다음과 같다.
+
+## Velite 라이브러리의 장점
+
+- 사용하기 쉽다 (경험담으로는 진짜다.)
+- Zod 스키마를 사용해 타입을 정의할 수 있다. (나에게 익숙하다.)
+- 내장 Markdown/MDX, YAML, JSON 지원, 상대 파일 및 이미지 처리, 스키마 유효성 검사에 용이하다.
+- 오류 보고 친화적이다.
+
+## 사용하면서 느낀점
+
+- 아직 안정성이 부족하다. (삽질한 내용을 추후 포스팅하려고 한다....)
+- 생각보다 MDX 자유도가 높아서 좋다 (나쁘지 않은 UI).
+
+지원 중단된 라이브러리를 사용하기 보다 최근 떠오르는 라이브러리가 낫다 싶었다.
+
+라이브러리 설치부터 실행까지 가보자!
+
+## Velite설치 및 실행
+
+### 1. Velite 설치 (공식문서 기준, typescript 기준)
+
+```ansi
+npm install velite -D
+```
+
+### 2. Velite 스키마 정의
+
+velite.config.ts파일 생성후 mdx에 들어갈 스키마를 정의해준다.  
+원하는대로 커스텀이 가능하다.
+
+```js velite.config.ts
+import { defineConfig, s } from "velite";
+
+export default defineConfig({
+  collections: {
+    posts: {
+      name: "Post",
+      pattern: "posts/**/*.md",
+      schema: s
+        .object({
+          title: s.string().max(99),
+          slug: s.slug("posts"),
+          date: s.isodate(),
+          cover: s.image(),
+          video: s.file().optional(),
+          metadata: s.metadata(),
+          excerpt: s.excerpt(),
+          content: s.markdown(),
+        })
+        .transform((data) => ({
+          ...data,
+          permalink: `/blog/${data.slug}`,
+        })),
+    },
+  },
+});
+```
+
+### 3. mdx파일 및 폴더 생성
+
+content/posts 디렉토리 아래 mdx파일을 추가해주자.
+
+```
+ root
++├── content
++│   ├── posts
++│   │   └── hello-world.mdx
++│   └── others
++│       └── other.yml
+ ├── public
+ ├── package.json
+ └── velite.config.js
+```
+
+```
+---
+title: Hello world
+date: 1992-02-25 13:22
+cover: cover.jpg
+video: video.mp4
+---
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse
+```
+
+<Callout type="warning">
+  ❗️ 여기서 공식문서와 다른점이 있다.
+</Callout>
+
+공식문서에서는 아래와 같이 slug값을 주라고 하지만
+
+```
+---
+title: Hello world
+date: 1992-02-25 13:22
+slug: Hello world
+cover: cover.jpg
+video: video.mp4
+---
+```
+
+그렇게 했을 때 다음과 같은 오류와 함께 원하는 데이터를 얻지 못한다.
+
+<Callout type="danger">
+  ❗️ warning `s.path()` schema will resolve the
+  flattening path based on the file path slug
+</Callout>
+
+이제 메인컴포넌트에서 velite를 import한 다음 console.log를 찍어보자!
+
+```js
+import Image from "next/image";
+
+import { posts } from "@/.velite";
+
+export default function Home() {
+  console.log(posts);
+  return <main className=""></main>;
+}
+```
+
+그럼 우리가 만든 mdx파일의 데이터 정보를 받아올 수 있다.
+
+```json
+[
+  {
+    "slug": "posts/hello-world",
+    "title": "Hello world",
+    "date": "1992-02-25T04:22:00.000Z",
+    "published": true,
+    "body": "const{jsx:n}=arguments[0];function _createMdxContent(e){const t={p:\"p\",...e.components};return n(t.p,{children:\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse\"})}return{default:function(e={}){const{wrapper:t}=e.components||{};return t?n(t,{...e,children:n(_createMdxContent,{...e})}):_createMdxContent(e)}};",
+    "slugAsParams": "hello-world"
+  }
+]
+```
+
+이 데이터를 이용하여 컴포넌트를 생성 후  
+현재 페이지에서 보이는 것과 같은 블로그 글을 작성할 수 있다.
+
+그 과정은 유튜브로 올려보고자 한다.
