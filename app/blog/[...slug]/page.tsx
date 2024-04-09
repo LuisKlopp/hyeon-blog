@@ -6,6 +6,8 @@ import "@/styles/mdx.css";
 import { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import { Tag } from "@/components/tag";
+import { CommentInput } from "@/components/comments/comment-input";
+import { CommentTextarea } from "@/components/comments/comment-textarea";
 interface PostPageProps {
   params: {
     slug: string[];
@@ -80,6 +82,14 @@ export default async function PostPage({
       <hr className="my-4" />
       <div className="tracking-tight text-blogAbsoluteBlack dark:text-gray03">
         <MDXContent code={post.body} />
+      </div>
+      <hr className="my-[10px] border border-gray06" />
+      <span className="mt-[10px] text-base font-medium leading-8 text-blogAbsoluteBlack">
+        3개의 댓글
+      </span>
+      <div className="mt-5 flex flex-col gap-[14px]">
+        <CommentInput />
+        <CommentTextarea />
       </div>
     </article>
   );
