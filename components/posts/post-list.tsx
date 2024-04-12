@@ -16,6 +16,7 @@ export const PostList = () => {
               title,
               description,
               detail,
+              thumbnail,
             } = post;
             return (
               <li key={slug}>
@@ -25,6 +26,7 @@ export const PostList = () => {
                   detail={detail}
                   title={title}
                   description={description}
+                  src={thumbnail?.src}
                 />
               </li>
             );

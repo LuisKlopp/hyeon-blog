@@ -1,6 +1,5 @@
 import Link from "next/link";
-// import Image from "next/image";
-// import Swiss from "@/public/swiss.png";
+import Image from "next/image";
 
 import { formatDate } from "@/lib/utils";
 
@@ -10,25 +9,32 @@ interface PostItemProps {
   description?: string;
   detail?: string;
   date: string;
+  src?: string;
 }
 
 export function PostCard({
   slug,
   title,
   description,
-  date,
   detail,
+  date,
+  src,
 }: PostItemProps) {
   return (
     <Link href={"/" + slug} className="w-full">
       <div className="shadow-custom max-w-[400px] transition ease-linear hover:scale-105 hover:shadow-lg dark:border-none">
-        {/* <Image
-          alt="image"
-          src={Swiss}
-          priority
-          className="h-[200px] w-full rounded-t-lg"
-        /> */}
-        <div className="2-full h-[200px] rounded-t-lg bg-[#d9d9d9] dark:bg-gray05"></div>
+        {src ? (
+          <Image
+            alt="image"
+            src={src}
+            priority
+            width={200}
+            height={100}
+            className="h-[200px] w-full rounded-t-lg"
+          />
+        ) : (
+          <div className="2-full h-[200px] rounded-t-lg bg-[#d9d9d9] dark:bg-gray05"></div>
+        )}
         <div className="flex h-[198px] flex-col justify-between overflow-hidden rounded-b-lg p-5 dark:border-none dark:bg-gray06">
           <div className="flex flex-col gap-2">
             <h2 className="line-clamp-1 text-lg font-medium leading-7 ">
