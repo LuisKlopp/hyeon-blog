@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export const LikeButton = () => {
   return (
-    <button className="my-[50px] flex h-10 w-[93px] items-center justify-center gap-2 rounded-lg bg-gray01 hover:bg-blogThickRed dark:bg-gray06 dark:hover:bg-blogThickRed">
+    <button className="mx-auto my-[50px] flex h-10 w-[93px] items-center justify-center gap-2 rounded-lg bg-gray01 hover:bg-blogThickRed dark:bg-gray06 dark:hover:bg-blogThickRed">
       <Image
         src={LikeThumbsUp}
         alt="thumbs-up"

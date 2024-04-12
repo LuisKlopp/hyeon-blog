@@ -1,6 +1,6 @@
 export const Comment = () => {
   return (
-    <div className="flex w-full flex-col">
+    <div className="flex flex-col">
       <div className="mb-1 flex h-8 w-full items-center justify-between">
         <span className="text-xs font-medium">
           닉네임

@@ -96,8 +96,11 @@ export default async function PostPage({
         <CommentInput />
         <CommentTextarea />
         <CommentButton />
-
-        <Comment />
+        <div className="mt-10 w-full">
+          <Comment />
+          <Comment />
+          <Comment />
+        </div>
       </div>
     </article>
   );
