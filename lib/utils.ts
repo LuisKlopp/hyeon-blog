@@ -42,7 +42,6 @@ export const getAllTags = (posts: Post[]) => {
 export const sortTagsByCount = (
   tags: Record<string, number>,
 ) => {
-  console.log(tags);
   return Object.keys(tags).sort((a, b) => {
     const diff = tags[b] - tags[a];
     if (diff !== 0) return diff;
