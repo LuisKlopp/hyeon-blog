@@ -42,9 +42,12 @@ export const getAllTags = (posts: Post[]) => {
 export const sortTagsByCount = (
   tags: Record<string, number>,
 ) => {
-  return Object.keys(tags).sort(
-    (a, b) => tags[b] - tags[a],
-  );
+  console.log(tags);
+  return Object.keys(tags).sort((a, b) => {
+    const diff = tags[b] - tags[a];
+    if (diff !== 0) return diff;
+    return a.localeCompare(b);
+  });
 };
 
 export const getPostsByTagSlug = (

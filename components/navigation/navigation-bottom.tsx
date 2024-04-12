@@ -38,7 +38,6 @@ const RightBottomItems = (
       key={title}
       className="flex items-center gap-2"
       href={href}
-      target="_blank"
     >
       <div className="font-light text-white md:text-sm">
         {title}

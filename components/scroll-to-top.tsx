@@ -16,7 +16,7 @@ export const ScrollToTop = () => {
   };
   return (
     <button
-      className={`shadow-custom fixed bottom-0 right-0 z-50 mb-[40px] mr-[60px] h-16 w-16 rounded-lg bg-blogThickRed`}
+      className={`shadow-custom fixed bottom-0 right-0 z-50 mb-[40px] mr-[60px] hidden h-16 w-16 rounded-lg bg-blogThickRed lgx:block`}
       onClick={scrollToTop}
     >
       <Image
