@@ -70,6 +70,7 @@ const TagPage = ({ params }: TagPageProps) => {
                 description,
                 date,
                 detail,
+                thumbnail,
               } = post;
               return (
                 <PostCard
@@ -79,6 +80,7 @@ const TagPage = ({ params }: TagPageProps) => {
                   detail={detail}
                   title={title}
                   description={description}
+                  src={thumbnail?.src}
                 />
               );
             })}
