@@ -9,6 +9,9 @@ import { Tag } from "@/components/tag";
 import { CommentInput } from "@/components/comments/comment-input";
 import { CommentTextarea } from "@/components/comments/comment-textarea";
 import { CommentButton } from "@/components/comments/comment-button";
+import { LikeButton } from "@/components/like/like-button";
+import { Comment } from "@/components/comments/comment";
+
 interface PostPageProps {
   params: {
     slug: string[];
@@ -84,6 +87,7 @@ export default async function PostPage({
       <div className="tracking-tight text-blogAbsoluteBlack dark:text-gray03">
         <MDXContent code={post.body} />
       </div>
+      <LikeButton />
       <hr className="my-[10px] border border-gray06" />
       <span className="mt-[10px] text-base font-medium leading-8 text-blogAbsoluteBlack dark:text-white">
         3개의 댓글
@@ -92,6 +96,8 @@ export default async function PostPage({
         <CommentInput />
         <CommentTextarea />
         <CommentButton />
+
+        <Comment />
       </div>
     </article>
   );
