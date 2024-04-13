@@ -15,12 +15,22 @@ export const NavigationItem = ({
 }: NavigationItemProps) => {
   const pathname = usePathname();
 
+  const isActive = () => {
+    if (href !== "/blog") {
+      return pathname === href;
+    }
+    return (
+      pathname.startsWith(href) ||
+      pathname.startsWith("/tags")
+    );
+  };
+
   return (
     <Link
       href={href}
       className={cn(
         "hidden text-sm font-medium transition hover:scale-125 sm:block",
-        pathname === href
+        isActive()
           ? "text-blogThickRed"
           : "hover:text-blogThickRed",
       )}
