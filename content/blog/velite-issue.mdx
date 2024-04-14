@@ -1,0 +1,161 @@
+---
+title: 라이브러리 GitHub 이슈로 버그해결하기
+description: Velite GitHub 이슈를 활용하여 버그해결하자
+detail: Velite 라이브러리를 사용할 때 Vercel 배포에 문제생기시는 분들을 위한 해결책 및 GitHub이슈로 질문 하는 방법
+date: 2024-04-13
+thumbnail: "../../public/github-issue.png"
+tags: ["Velite", "Markdown", "Nextjs14"]
+published: true
+---
+
+꽤나 오랜 시간동안 고민하고 삽질했던 이야기를 시작하고자 한다.
+
+**개인 블로그를 만들고 vercel을 이용해 배포하려고 했는데  
+Markdown 라이브러리인 Velite에서 문제가 생겨 배포가 막혔다.**
+
+문제의 오류는 다음과 같다.
+
+<center>
+  <img
+    src="../../public/vercel-error.png"
+    className="post-image"
+  />
+</center>
+
+자 이러한 문제가 생겼을 때
+어떻게 해결하는 것이 좋을까?
+
+```ansi
+free(): invalid size
+Error: Command "npm run build" exited with SIGABRT
+```
+
+## 1. 에러해결방법
+
+### a. 에러메시지 긁어서 구글링하기
+
+첫 번째 라인에서 invalid size  
+즉 유효하지않은 크기라고 하니 그대로 긁어서 구글링하고 해결이 안된다면  
+두 번째 라인의 Error: Command ~~ 를 긁어서 구글링하는게 좋겠다.
+
+위의 방법은 빠르고 손쉽게 에러를 해결할 수 있는 방법이지만  
+같은 에러를 겪은 사람이 많아야하고 해결책도 쉽게 찾을 수 있을 정도로  
+널리 사용되는 라이브러리여야 한다.
+
+<br />
+### b. 혼자 어떻게든 해결해보기
+
+필자의 경우 VELITE 라이브러리를 전부 지우고 시도해봤을 때  
+에러가 해결됐기 때문에 VELITE에 문제가 생겼다는 것을 알게 됐고
+공식문서를 뒤져봤다.
+
+하지만 해당 라이브러리가 최근에 나온 것이라 공식문서가 아직 완성되지 않았고  
+에러해결 방법은 커녕 정상적인 기능조차도 전부 소개하고 있지 않았다.
+
+<br />
+### c. Github 이슈 확인
+
+이틀정도 고민해보다가 vercel라이브러리 깃허브 이슈를 찾았다.
+
+<img
+  src="../../public/vercel-github-issue.png"
+  className="post-image"
+/>
+
+아래에서 두 번째 이슈가 내가 찾던 이슈였고 나와 같은
+에러를 마주한 사람이 역시나 나뿐만이 아니었다.  
+해당 이슈에서 해결이 됐다는 사람들의 댓글을 참고해서 수정을 하다가 결국 해결하게 됐다.
+
+<img
+  src="../../public/vercel-question.png"
+  className="post-image"
+/>
+
+**라이브러리 설계자분께 github issue댓글을 통해서 질문과 답변을 했고**
+**마침내 해결되었으며 감사하다는 댓글을 달았다.**
+
+이 방법은 시간이 조금 걸릴지라도 라이브러리의 개선점을 공유하고
+상대적으로 확실한 해결방법을 얻게 될 수 있는 방법이다.
+
+## 2. Velite 라이브러리를 사용할 때 vercel 배포안되는 버그 해결 방법
+
+그럼 필자와 같은 문제(vercel 배포안됨)를 해결하기 위한 분들에게 그 방법을 공유해보고자 한다.
+
+velite는 next.config.mjs의 파일을 수정하도록 권한다.
+
+```js title="next.config.mjs"
+import { build } from "velite";
+
+/** @type {import('next').NextConfig} */
+export default {
+  // othor next config here...
+  webpack: (config) => {
+    config.plugins.push(
+      new VeliteWebpackPlugin(),
+    );
+    return config;
+  },
+};
+
+class VeliteWebpackPlugin {
+  static started = false;
+  constructor(
+    /** @type {import('velite').Options} */ options = {},
+  ) {
+    this.options = options;
+  }
+  apply(
+    /** @type {import('webpack').Compiler} */ compiler,
+  ) {
+    // executed three times in nextjs !!!
+    // twice for the server (nodejs / edge runtime) and once for the client
+    compiler.hooks.beforeCompile.tapPromise(
+      "VeliteWebpackPlugin",
+      async () => {
+        if (VeliteWebpackPlugin.started) return;
+        VeliteWebpackPlugin.started = true;
+        const dev =
+          compiler.options.mode === "development";
+        this.options.watch =
+          this.options.watch ?? dev;
+        this.options.clean =
+          this.options.clean ?? !dev;
+        await build(this.options); // start velite
+      },
+    );
+  }
+}
+```
+
+markdown 파일은 프론트에서 가지고있는 정적 파일이기 때문에  
+npm run build 명령어로 build를 실행해야 그때 그때 수정된 mdx파일의 변경사항이 웹에 표출되는데  
+위 코드가 build과정 없이 markdown 글을 표출시킬 수 있다.
+
+하지만 이 코드에서 vercel배포에 문제가 생긴상황이며  
+라이브러리를 만드신 분도 왜 이런 문제가 생겼는지 확인 중이라고 한다.
+
+next.config.mjs 파일을 리셋하여 다시 돌려놓고
+
+```js title="next.config.mjs"
+/** @type {import('next').NextConfig} */
+const nextConfig = {};
+
+export default nextConfig;
+```
+
+package.json의 scripts에서 build 부분을 아래와 같이 변경해주자.
+
+```ansi
+"build": "velite && next build",
+```
+
+정상적으로 배포가 완료된다.
+
+<br />
+오늘은 Github Issue를 활용하는 방법과 버그 해결에 대해
+알아보았는데 수 많은 에러와 버그를 마주할 때마다 해결방법은
+제각각이다.
+
+그렇지만 **많은 경험을 통한 문제해결능력 향상은 프로그래머에게 큰 자산**이기 때문에
+잘 안풀리는 문제가 생겼을 때  
+답답하지만 어떻게든 해결해본다 라는 마음으로 모든 방법을 총동원해보자.
