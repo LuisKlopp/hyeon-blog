@@ -76,8 +76,7 @@ export default async function PostPage({
     notFound();
   }
 
-  const { views, likes } =
-    await getPostData(params);
+  const { likes } = await getPostData(params);
 
   return (
     <article className="container prose relative mx-auto max-w-3xl py-10 dark:prose-invert">
@@ -97,7 +96,6 @@ export default async function PostPage({
       </p>
       <p className="my-0 font-light text-gray03">
         {formatDate(post?.date)} &middot;&nbsp;
-        {views}회
       </p>
       <hr className="my-4" />
       <div className="tracking-tight text-blogAbsoluteBlack dark:text-gray03">
