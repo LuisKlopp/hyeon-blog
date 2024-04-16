@@ -10,13 +10,24 @@ interface LikeButtonProps {
   postId: number;
 }
 
-const handleAddLikecount = async (
+const handleAddLikeCount = async (
   postId: number,
 ) => {
   await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL}/posts/like/${postId}`,
     {
       method: "POST",
+    },
+  );
+};
+
+const handleRemoveLikeCount = async (
+  postId: number,
+) => {
+  await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/posts/like/${postId}`,
+    {
+      method: "DELETE",
     },
   );
 };
@@ -30,9 +41,15 @@ export const LikeButton = ({
   const [isLiked, setIsLiked] = useState(false);
 
   const handleAddLike = () => {
-    setLikesCount((prev) => prev + 1);
     setIsLiked((prev) => !prev);
-    handleAddLikecount(postId);
+
+    if (isLiked) {
+      setLikesCount((prev) => prev - 1);
+      handleRemoveLikeCount(postId);
+      return;
+    }
+    setLikesCount((prev) => prev + 1);
+    handleAddLikeCount(postId);
   };
 
   return (
