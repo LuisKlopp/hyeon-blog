@@ -19,7 +19,7 @@ export const LikeButton = ({
         </span>
       </button>
       <span className=" text-base font-medium">
-        {likes}
+        {likes}개
       </span>
     </div>
   );

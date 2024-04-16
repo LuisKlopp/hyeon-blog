@@ -76,7 +76,8 @@ export default async function PostPage({
     notFound();
   }
 
-  const { likes } = await getPostData(params);
+  const { likes, views } =
+    await getPostData(params);
 
   return (
     <article className="container prose relative mx-auto max-w-3xl py-10 dark:prose-invert">
@@ -90,13 +91,16 @@ export default async function PostPage({
           ))}
         </div>
       </div>
-      <h1 className="mb-2">{post.title}</h1>
-      <p className="my-0 text-xl text-gray03">
-        {post?.description}
-      </p>
-      <p className="my-0 font-light text-gray03">
-        {formatDate(post?.date)} &middot;&nbsp;
-      </p>
+      <div className="flex flex-col">
+        <h1 className="mb-2">{post.title}</h1>
+        <span className="text-xl text-gray03">
+          {post?.description}
+        </span>
+        <span className="font-light text-gray03">
+          {formatDate(post?.date)} &middot;&nbsp;
+          {views}회
+        </span>
+      </div>
       <hr className="my-4" />
       <div className="tracking-tight text-blogAbsoluteBlack dark:text-gray03">
         <MDXContent code={post.body} />
