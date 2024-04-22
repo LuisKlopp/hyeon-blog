@@ -78,8 +78,8 @@ const getCommentData = async (
       cache: "no-store",
     },
   );
-
   const data = response.json();
+
   return data;
 };
 
@@ -125,10 +125,10 @@ export default async function PostPage({
       </div>
       <LikeButton likes={likes} postId={id} />
       <hr className="my-[10px] border border-gray06" />
-      <span className="mt-[10px] text-base font-medium leading-8 text-blogAbsoluteBlack dark:text-white">
-        {comments.length}개의 댓글
-      </span>
-      <CommentBundle comments={comments} />
+      <CommentBundle
+        comments={comments}
+        postId={id}
+      />
     </article>
   );
 }
