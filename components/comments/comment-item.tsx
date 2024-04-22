@@ -4,7 +4,7 @@ interface CommentProps {
   created_at: string;
 }
 
-export const Comment = ({
+export const CommentItem = ({
   nickname,
   content,
   created_at,

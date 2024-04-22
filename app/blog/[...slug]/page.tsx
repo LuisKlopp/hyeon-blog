@@ -6,13 +6,11 @@ import "@/styles/mdx.css";
 import { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import { Tag } from "@/components/tag";
-import { CommentInput } from "@/components/comments/comment-input";
-import { CommentTextarea } from "@/components/comments/comment-textarea";
-import { CommentButton } from "@/components/comments/comment-button";
+
 import { LikeButton } from "@/components/like/like-button";
-import { Comment } from "@/components/comments/comment";
 import { formatDate } from "@/lib/utils";
 import { CommentType } from "@/types/comment.types";
+import { CommentBundle } from "@/components/comments/comment-bundle";
 
 interface PostPageProps {
   params: {
@@ -130,23 +128,7 @@ export default async function PostPage({
       <span className="mt-[10px] text-base font-medium leading-8 text-blogAbsoluteBlack dark:text-white">
         {comments.length}개의 댓글
       </span>
-      <div className="mt-5 flex flex-col items-end gap-[14px]">
-        <CommentInput />
-        <CommentTextarea />
-        <CommentButton />
-        <div className="mt-10 w-full">
-          {comments.map((comment) => (
-            <Comment
-              key={comment.id}
-              nickname={comment.nickname}
-              content={comment.content}
-              created_at={formatDate(
-                comment.created_at,
-              )}
-            />
-          ))}
-        </div>
-      </div>
+      <CommentBundle comments={comments} />
     </article>
   );
 }
