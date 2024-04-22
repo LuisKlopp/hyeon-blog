@@ -7,10 +7,11 @@ import { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import { Tag } from "@/components/tag";
 
-import { LikeButton } from "@/components/like/like-button";
+// import { LikeButton } from "@/components/like/like-button";
 import { formatDate } from "@/lib/utils";
-import { CommentType } from "@/types/comment.types";
-import { CommentBundle } from "@/components/comments/comment-bundle";
+import { CommentInput } from "@/components/comments/comment-input";
+import { CommentTextarea } from "@/components/comments/comment-textarea";
+import { CommentButton } from "@/components/comments/comment-button";
 
 interface PostPageProps {
   params: {
@@ -56,6 +57,7 @@ export async function generateStaticParams(): Promise<
   }));
 }
 
+
 const getPostData = async (
   params: PostPageProps["params"],
 ) => {
@@ -83,6 +85,7 @@ const getCommentData = async (
   return data;
 };
 
+
 export default async function PostPage({
   params,
 }: PostPageProps) {
@@ -91,11 +94,6 @@ export default async function PostPage({
   if (!post || !post.published) {
     notFound();
   }
-
-  const { likes, views, id } =
-    await getPostData(params);
-
-  const comments = await getCommentData(id);
 
   return (
     <article className="container prose relative mx-auto max-w-3xl py-10 dark:prose-invert">
@@ -116,14 +114,13 @@ export default async function PostPage({
         </span>
         <span className="font-light text-gray03">
           {formatDate(post?.date)} &middot;&nbsp;
-          {views}회
         </span>
       </div>
       <hr className="my-4" />
       <div className="tracking-tight text-blogAbsoluteBlack dark:text-gray03">
         <MDXContent code={post.body} />
       </div>
-      <LikeButton likes={likes} postId={id} />
+      {/* <LikeButton likes={likes} /> */}
       <hr className="my-[10px] border border-gray06" />
       <CommentBundle
         comments={comments}
