@@ -7,7 +7,7 @@ import { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import { Tag } from "@/components/tag";
 
-import { LikeButton } from "@/components/like/like-button";
+// import { LikeButton } from "@/components/like/like-button";
 import { formatDate } from "@/lib/utils";
 import { CommentInput } from "@/components/comments/comment-input";
 import { CommentTextarea } from "@/components/comments/comment-textarea";
@@ -57,18 +57,18 @@ export async function generateStaticParams(): Promise<
   }));
 }
 
-const getPostData = async (
-  params: PostPageProps["params"],
-) => {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/posts/${params?.slug[0]}`,
-    {
-      cache: "no-store",
-    },
-  );
-  const data = response.json();
-  return data;
-};
+// const getPostData = async (
+//   params: PostPageProps["params"],
+// ) => {
+//   const response = await fetch(
+//     `${process.env.NEXT_PUBLIC_BASE_URL}/posts/${params?.slug[0]}`,
+//     {
+//       cache: "no-store",
+//     },
+//   );
+//   const data = response.json();
+//   return data;
+// };
 
 export default async function PostPage({
   params,
@@ -78,8 +78,6 @@ export default async function PostPage({
   if (!post || !post.published) {
     notFound();
   }
-
-  const { likes } = await getPostData(params);
 
   return (
     <article className="container prose relative mx-auto max-w-3xl py-10 dark:prose-invert">
@@ -106,7 +104,7 @@ export default async function PostPage({
       <div className="tracking-tight text-blogAbsoluteBlack dark:text-gray03">
         <MDXContent code={post.body} />
       </div>
-      <LikeButton likes={likes} />
+      {/* <LikeButton likes={likes} /> */}
       <hr className="my-[10px] border border-gray06" />
       <span className="mt-[10px] text-base font-medium leading-8 text-blogAbsoluteBlack dark:text-white">
         3개의 댓글
