@@ -38,7 +38,10 @@ export const CommentBundle = ({
     );
 
     const newComment = {
-      id: comments[comments.length - 1].id + 1,
+      id: commentList.length
+        ? commentList[commentList.length - 1].id +
+          1
+        : 1,
       post_id: postId,
       nickname,
       content,

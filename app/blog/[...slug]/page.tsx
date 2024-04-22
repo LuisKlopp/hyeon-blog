@@ -75,7 +75,7 @@ const getCommentData = async (
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL}/comments/posts/${id}`,
     {
-      cache: "no-store",
+      cache: "default",
     },
   );
   const data = response.json();
