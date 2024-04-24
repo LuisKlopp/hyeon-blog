@@ -117,7 +117,6 @@ export default async function PostPage({
         </span>
         <span className="font-light text-gray03">
           {formatDate(post?.date)} &middot;&nbsp;
-          {post?.date}
           {views}회
         </span>
       </div>
