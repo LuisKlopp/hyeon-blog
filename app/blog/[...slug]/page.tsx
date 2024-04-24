@@ -7,7 +7,6 @@ import { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import { Tag } from "@/components/tag";
 
-// import { formatDate } from "@/lib/utils";
 import { CommentType } from "@/types/comment.types";
 import { CommentBundle } from "@/components/comments/comment-bundle";
 import { LikeButton } from "@/components/like/like-button";
