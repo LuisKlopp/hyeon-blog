@@ -1,4 +1,5 @@
-// import { formatDate } from "@/lib/utils";
+"use client";
+import { formatDate } from "@/lib/utils";
 
 interface CommentProps {
   nickname: string;
@@ -18,7 +19,7 @@ export const CommentItem = ({
           {nickname}
         </span>
         <span className="text-xs font-light text-gray02">
-          {created_at}
+          {formatDate(created_at)}
         </span>
       </div>
       <div className="flex">
