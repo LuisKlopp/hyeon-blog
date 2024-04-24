@@ -7,10 +7,11 @@ import { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import { Tag } from "@/components/tag";
 
-import { formatDate } from "@/lib/utils";
+// import { formatDate } from "@/lib/utils";
 import { CommentType } from "@/types/comment.types";
 import { CommentBundle } from "@/components/comments/comment-bundle";
 import { LikeButton } from "@/components/like/like-button";
+import { formatDate } from "@/lib/utils";
 
 interface PostPageProps {
   params: {
@@ -116,6 +117,7 @@ export default async function PostPage({
         </span>
         <span className="font-light text-gray03">
           {formatDate(post?.date)} &middot;&nbsp;
+          {post?.date}
           {views}회
         </span>
       </div>

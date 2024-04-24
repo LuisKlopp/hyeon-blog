@@ -4,7 +4,6 @@ import { CommentInput } from "@/components/comments/comment-input";
 import { CommentTextarea } from "@/components/comments/comment-textarea";
 import { CommentButton } from "@/components/comments/comment-button";
 import { CommentItem } from "@/components/comments/comment-item";
-import { formatDate } from "@/lib/utils";
 import { CommentType } from "@/types/comment.types";
 import { useState } from "react";
 
@@ -76,9 +75,7 @@ export const CommentBundle = ({
               key={comment.id}
               nickname={comment.nickname}
               content={comment.content}
-              created_at={formatDate(
-                comment.created_at,
-              )}
+              created_at={comment.created_at}
             />
           ))}
         </div>
