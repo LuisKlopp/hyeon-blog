@@ -1,4 +1,7 @@
+"use client";
+
 import { formatDate } from "@/lib/utils";
+import { useEffect, useState } from "react";
 
 interface CommentProps {
   nickname: string;
@@ -11,6 +14,12 @@ export const CommentItem = ({
   content,
   created_at,
 }: CommentProps) => {
+  const [date, setDate] = useState<string>("");
+
+  useEffect(() => {
+    setDate(formatDate(created_at));
+  }, [created_at, date]);
+
   return (
     <div className="flex flex-col">
       <div className="mb-1 flex h-8 w-full items-center justify-between">
@@ -18,7 +27,7 @@ export const CommentItem = ({
           {nickname}
         </span>
         <span className="text-xs font-light text-gray02">
-          {formatDate(created_at)}
+          {date}
         </span>
       </div>
       <div className="flex">
