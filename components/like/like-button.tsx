@@ -67,8 +67,9 @@ export const LikeButton = ({
         <Image
           src={LikeThumbsUp}
           alt="thumbs-up"
+          className="m-0 h-[14px]"
         />
-        <span className="text-center font-medium leading-8 text-white">
+        <span className="font-medium text-white">
           {likesCount}개
         </span>
       </button>
