@@ -69,12 +69,9 @@ export const LikeButton = ({
           alt="thumbs-up"
         />
         <span className="text-center font-medium leading-8 text-white">
-          공감
+          {likesCount}개
         </span>
       </button>
-      <span className=" text-base font-medium">
-        {likesCount}개
-      </span>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import { posts } from "#site/content";
 import { MDXContent } from "@/components/mdx-components";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 
 import "@/styles/mdx.css";
 import { Metadata } from "next";
@@ -123,7 +124,15 @@ export default async function PostPage({
       <div className="tracking-tight text-blogAbsoluteBlack dark:text-gray03">
         <MDXContent code={post.body} />
       </div>
-      <LikeButton likes={likes} postId={id} />
+      <div className="flex items-center gap-[10px]">
+        <LikeButton likes={likes} postId={id} />
+        <Link
+          href="/blog"
+          className="flex h-10 items-center rounded-lg bg-gray01 px-4 font-medium no-underline dark:bg-gray06"
+        >
+          목록으로
+        </Link>
+      </div>
       <hr className="my-[10px] border border-gray06" />
       <CommentBundle
         comments={comments}
