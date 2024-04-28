@@ -12,11 +12,13 @@ export const NavigationLogo = () => {
         src={BlackModeLogo}
         alt="logo"
         className="hidden dark:block"
+        priority
       />
       <Image
         src={WhiteModeLogo}
         alt="logo"
         className="dark:hidden"
+        priority
       />
     </button>
   );

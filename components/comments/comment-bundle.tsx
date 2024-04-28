@@ -1,6 +1,7 @@
 "use client";
 
-import { CommentInput } from "@/components/comments/comment-input";
+import { CommentNicknameInput } from "@/components/comments/comment-nickname-input";
+import { CommentPasswordInput } from "@/components/comments/comment-password-input";
 import { CommentTextarea } from "@/components/comments/comment-textarea";
 import { CommentButton } from "@/components/comments/comment-button";
 import { CommentItem } from "@/components/comments/comment-item";
@@ -19,6 +20,7 @@ export const CommentBundle = ({
   const [commentList, setCommentList] =
     useState(comments);
   const [nickname, setNickname] = useState("");
+  const [password, setPassword] = useState("");
   const [content, setContent] = useState("");
 
   const handleAddComment = async () => {
@@ -60,7 +62,12 @@ export const CommentBundle = ({
         {commentList.length}개의 댓글
       </span>
       <div className="mt-5 flex flex-col items-end gap-[14px]">
-        <CommentInput setNickname={setNickname} />
+        <CommentNicknameInput
+          setNickname={setNickname}
+        />
+        <CommentPasswordInput
+          setPassword={setPassword}
+        />
         <CommentTextarea
           setContent={setContent}
         />

@@ -56,7 +56,7 @@ export const LikeButton = ({
     <div className="my-[50px] flex items-center gap-3">
       <button
         className={cn(
-          "flex h-10 w-[93px] items-center justify-center gap-2 rounded-lg bg-gray01 hover:bg-blogThickRed dark:bg-gray06 dark:hover:bg-blogThickRed",
+          "flex h-10 w-[93px] items-center justify-center gap-2 rounded-lg bg-gray02 hover:bg-blogThickRed dark:bg-gray06 dark:hover:bg-blogThickRed",
           {
             "bg-blogThickRed dark:bg-blogThickRed":
               isLiked,

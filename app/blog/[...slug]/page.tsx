@@ -128,7 +128,7 @@ export default async function PostPage({
         <LikeButton likes={likes} postId={id} />
         <Link
           href="/blog"
-          className="flex h-10 items-center rounded-lg bg-gray01 px-4 font-medium no-underline dark:bg-gray06"
+          className="flex h-10 items-center rounded-lg bg-black px-4 font-medium text-white no-underline dark:bg-gray06"
         >
           목록으로
         </Link>
