@@ -46,6 +46,7 @@ export const CommentBundle = ({
       post_id: postId,
       nickname,
       content,
+      password,
       created_at: new Date().toISOString(),
     };
 
@@ -53,6 +54,7 @@ export const CommentBundle = ({
       ...commentList,
       newComment,
     ];
+
     setCommentList(newCommentList);
   };
 
