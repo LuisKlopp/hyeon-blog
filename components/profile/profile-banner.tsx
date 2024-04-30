@@ -1,6 +1,6 @@
 import Image from "next/image";
 import MobileBanner from "@/public/image/mobile-banner.png";
-import MainBannerWide from "@/public/image/main-banner-wide.png";
+import MainBannerWide from "@/public/image/main-banner-wide.webp";
 import MainBanner from "@/public/image/main-banner.png";
 import { NavigationBottom } from "../navigation/navigation-bottom";
 

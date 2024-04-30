@@ -25,11 +25,11 @@ export function PostCard({
       <div className="shadow-custom max-w-[400px] transition ease-linear hover:scale-105 hover:shadow-lg dark:border-none">
         {src ? (
           <Image
-            alt="image"
+            alt="post-image"
             src={src}
             priority
             width={200}
-            height={100}
+            height={200}
             className="h-[200px] w-full rounded-t-lg"
           />
         ) : (
