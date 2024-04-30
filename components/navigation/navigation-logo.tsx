@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 
-import BlackModeLogo from "@/public/black-mode-logo.svg";
-import WhiteModeLogo from "@/public/white-mode-logo.svg";
+import BlackModeLogo from "@/public/icon/black-mode-logo.svg";
+import WhiteModeLogo from "@/public/icon/white-mode-logo.svg";
 
 export const NavigationLogo = () => {
   return (

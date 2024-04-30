@@ -1,7 +1,7 @@
 "use client";
 
 import { NAVIGATION_TOP_ITEMS } from "./constants/navigation.constants";
-import DiagonalArrowIcon from "@/public/diagonal-arrow-icon.svg";
+import DiagonalArrowIcon from "@/public/icon/diagonal-arrow-icon.svg";
 import Link from "next/link";
 import Image from "next/image";
 import { Dispatch, SetStateAction } from "react";

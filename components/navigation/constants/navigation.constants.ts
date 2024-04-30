@@ -1,6 +1,6 @@
-import CallIcon from "@/public/call-icon.svg";
-import MailIcon from "@/public/mail-icon.svg";
-import DiagonalArrowIcon from "@/public/diagonal-arrow-icon.svg";
+import CallIcon from "@/public/icon/call-icon.svg";
+import MailIcon from "@/public/icon/mail-icon.svg";
+import DiagonalArrowIcon from "@/public/icon/diagonal-arrow-icon.svg";
 
 export interface BottomLeftItems {
   title: string;

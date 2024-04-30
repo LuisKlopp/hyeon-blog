@@ -13,8 +13,8 @@ import { NavigationMobile } from "./navigation-mobile";
 import { NavigationLogo } from "@/components/navigation/navigation-logo";
 import { ProgressBar } from "@/components/progress-bar";
 
-import Hamburger from "@/public/hamburger.svg";
-import HamburgerBlack from "@/public/hamburger-black.svg";
+import Hamburger from "@/public/icon/hamburger.svg";
+import HamburgerBlack from "@/public/icon/hamburger-black.svg";
 
 export const NavigationHeader = () => {
   const { slug } = useParams();

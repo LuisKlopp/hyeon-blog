@@ -2,8 +2,8 @@
 import Image from "next/image";
 
 import { useTheme } from "next-themes";
-import Moon from "@/public/moon-icon.svg";
-import Sun from "@/public/sun-icon.svg";
+import Moon from "@/public/icon/moon-icon.svg";
+import Sun from "@/public/icon/sun-icon.svg";
 
 export const ThemeChanger = () => {
   const { setTheme, theme } = useTheme();

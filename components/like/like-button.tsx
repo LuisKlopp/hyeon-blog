@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import LikeThumbsUp from "@/public/like-button.svg";
+import LikeThumbsUp from "@/public/icon/like-button.svg";
 import Image from "next/image";
 import { useState } from "react";
 

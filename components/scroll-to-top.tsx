@@ -1,6 +1,6 @@
 "use client";
 
-import ArrowUpButton from "@/public/arrow-up-button.svg";
+import ArrowUpButton from "@/public/icon/arrow-up-button.svg";
 import Image from "next/image";
 
 export const ScrollToTop = () => {
