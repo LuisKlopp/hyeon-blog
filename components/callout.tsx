@@ -13,11 +13,11 @@ export const Callout = ({
   return (
     <div
       className={cn(
-        "border-1-4 my-6 w-full items-start rounded-md border px-4 dark:max-w-none ",
+        "border-1-4 my-6 w-full items-start rounded-md border px-4 text-base font-medium dark:max-w-none",
         {
-          "border-red-988 bg-red-50 dark:prose":
+          "border-red-988 bg-red-200 text-black":
             type === "danger",
-          "border-yellow-988 bg-yellow-50 dark:prose":
+          "border-yellow-988 bg-yellow-50":
             type === "warning",
         },
       )}
