@@ -16,7 +16,7 @@ const ProfileBanner = () => {
       <Image
         alt="It's me"
         src={MainBanner}
-        className="m-auto hidden sm:block xl:hidden"
+        className="m-auto hidden w-full sm:block xl:hidden"
         priority
       />
       <Image
