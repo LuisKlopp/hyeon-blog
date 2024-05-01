@@ -22,22 +22,22 @@ export function PostCard({
 }: PostItemProps) {
   return (
     <Link href={"/" + slug} className="w-full">
-      <div className="shadow-custom h-[400px] max-w-[400px] transition ease-linear hover:scale-105 hover:shadow-lg dark:border-none">
+      <div className="shadow-custom h-[400px] max-w-[400px] rounded-lg border transition ease-linear hover:scale-105 hover:shadow-lg dark:border-none">
         {src ? (
-          <div className="relative h-[200px] w-full">
+          <div className="relative h-[200px] w-full overflow-hidden rounded-t-lg">
             <Image
               alt="post-image"
               src={src}
               priority
               sizes="100%"
               fill
-              className="h-[200px] w-full rounded-t-lg"
+              className="h-[200px] w-full"
             />
           </div>
         ) : (
-          <div className="2-full h-[200px] rounded-t-lg bg-[#d9d9d9] dark:bg-gray05" />
+          <div className="h-[200px] w-full rounded-t-lg bg-[#d9d9d9] dark:bg-gray05" />
         )}
-        <div className="flex h-[198px] flex-col justify-between overflow-hidden rounded-b-lg p-5 dark:border-none dark:bg-gray06">
+        <div className="flex h-[198px] flex-col justify-between overflow-hidden rounded-b-lg border-t p-5 dark:bg-gray06">
           <div className="flex flex-col gap-2">
             <h2 className="line-clamp-1 text-lg font-medium leading-7 ">
               {title}
