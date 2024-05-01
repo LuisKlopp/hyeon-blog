@@ -15,12 +15,16 @@ published: true
 
 ### a. Next/Image를 사용한 Image
 
-<center>
-  <img src="../../public/posts/nextjs14-image/bad-quality-image.png" />
-</center>
+<Image
+  src="../../public/posts/nextjs14-image/bad-quality-image.png"
+  alt="post-image"
+  height="300px"
+  width="500px"
+/>
 
-빨간펜 칠한 이미지가 요즘말로 **'혼자 그림체가 다르다...'**  
-아래의 텍스트들은 당연하게도 선명한데 이미지는 흐리멍덩한게 클릭 안하고 싶게 생겼다.
+빨간펜 칠한 이미지가 딱봐도 픽셀이 깨져있는 상태이다.  
+아래의 텍스트들은 당연하게도 선명한데 이미지는 흐리멍덩한게
+클릭 안하고 싶게 생겼다.
 
 ### b. 나의 Next/Image Component 코드
 
@@ -81,9 +85,12 @@ width와 height props를 설정안해주면 오류가 나기때문에
 fill을 true로 설정해주고 sizes도 100%로 맞춰준 다음  
 이후에 className으로 스타일링 해주면 콘솔 warning도 없고 깔끔하게 마무리된다.
 
-<center>
-  <img src="../../public/posts/nextjs14-image/good-quality-image.png" />
-</center>
+<Image
+  src="../../public/posts/nextjs14-image/good-quality-image.png"
+  alt="post-image"
+  height="450px"
+  width="550px"
+/>
 
 첫번째 사진이랑 비교했을 때 엄청 선명해졌다.
 
