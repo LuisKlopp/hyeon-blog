@@ -116,6 +116,9 @@ img {
       color: #b4abaf;
     }
   }
+  .list-marker-black ::marker {
+    color: black;
+  }
 }
 
 /* width */
