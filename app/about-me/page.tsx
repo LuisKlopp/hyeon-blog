@@ -42,7 +42,19 @@ const AboutMe = () => {
                   key={item.content}
                   className="px-0"
                 >
-                  {item.content}
+                  {item.content.slice(
+                    0,
+                    item.startBoldIndex,
+                  )}
+                  <strong>
+                    {item.content.slice(
+                      item.startBoldIndex,
+                      item.endBoldIndex,
+                    )}
+                  </strong>
+                  {item.content.slice(
+                    item.endBoldIndex,
+                  )}
                 </li>
               ))}
             </ul>
