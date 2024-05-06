@@ -2,6 +2,7 @@ import Image from "next/image";
 import AboutMeImage from "@/public/image/about-me-image.png";
 import { ABOUT_ME_SUMMARY } from "./constants/about-me.constants";
 import { Experience } from "@/components/aboutMe/experience/experience";
+import { Stacks } from "@/components/aboutMe/stacks/stacks";
 
 const AboutMe = () => {
   return (
@@ -62,8 +63,9 @@ const AboutMe = () => {
           </div>
         </div>
       </div>
-      <div>
+      <div className="flex flex-col gap-2">
         <Experience />
+        <Stacks />
       </div>
     </article>
   );
