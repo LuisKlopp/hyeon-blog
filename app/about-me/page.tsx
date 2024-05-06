@@ -4,6 +4,7 @@ import { ABOUT_ME_SUMMARY } from "./constants/about-me.constants";
 import { Experience } from "@/components/aboutMe/experience/experience";
 import { Stacks } from "@/components/aboutMe/stacks/stacks";
 import { Career } from "@/components/aboutMe/career/career";
+import { Activity } from "@/components/aboutMe/activity/activity";
 
 const AboutMe = () => {
   return (
@@ -68,6 +69,7 @@ const AboutMe = () => {
         <Experience />
         <Stacks />
         <Career />
+        <Activity />
       </div>
     </article>
   );
