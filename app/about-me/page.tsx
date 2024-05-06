@@ -1,10 +1,14 @@
 import Image from "next/image";
 import AboutMeImage from "@/public/image/about-me-image.png";
 import { ABOUT_ME_SUMMARY } from "./constants/about-me.constants";
+import { Experience } from "@/components/aboutMe/experience/experience";
+import { Stacks } from "@/components/aboutMe/stacks/stacks";
+import { Career } from "@/components/aboutMe/career/career";
+import { Activity } from "@/components/aboutMe/activity/activity";
 
 const AboutMe = () => {
   return (
-    <article className="prose relative mx-auto max-w-3xl py-10 dark:prose-invert">
+    <article className="prose relative mx-auto flex max-w-3xl flex-col gap-[30px] py-10 dark:prose-invert">
       <div>
         <h1 className="mb-3 text-xl font-medium leading-[43.2px]">
           류현
@@ -14,11 +18,11 @@ const AboutMe = () => {
         </span>
         <hr className="mb-0 mt-4 w-[60px] border border-black dark:border-gray03" />
       </div>
-      <div className="mt-8 flex gap-7">
+      <div className="flex gap-7">
         <Image
           src={AboutMeImage}
           alt="about-me-image"
-          className="m-0"
+          className="m-0 w-[268px]"
         />
         <div>
           <h1 className="mb-2 text-xl font-thin dark:text-gray02">
@@ -60,6 +64,12 @@ const AboutMe = () => {
             </ul>
           </div>
         </div>
+      </div>
+      <div className="flex flex-col gap-4">
+        <Experience />
+        <Stacks />
+        <Career />
+        <Activity />
       </div>
     </article>
   );
