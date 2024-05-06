@@ -16,7 +16,7 @@ export const STACKS_CONSTANTS: {
   },
   {
     content:
-      "Tailwind CSS, Style-Component, emotionJS",
+      "Tailwind CSS, Styled-Component, emotionJS",
   },
   {
     content: " Collaboration & Tools",

@@ -15,7 +15,7 @@ export const Experience = () => {
             item.isLinked ? (
               <li
                 key={item.content}
-                className="my-1 flex gap-1 px-0 font-light"
+                className="my-1 flex gap-2 px-0 font-light"
               >
                 &bull;
                 <Link
