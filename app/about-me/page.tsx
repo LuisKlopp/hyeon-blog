@@ -3,6 +3,7 @@ import AboutMeImage from "@/public/image/about-me-image.png";
 import { ABOUT_ME_SUMMARY } from "./constants/about-me.constants";
 import { Experience } from "@/components/aboutMe/experience/experience";
 import { Stacks } from "@/components/aboutMe/stacks/stacks";
+import { Career } from "@/components/aboutMe/career/career";
 
 const AboutMe = () => {
   return (
@@ -66,6 +67,7 @@ const AboutMe = () => {
       <div className="flex flex-col gap-2">
         <Experience />
         <Stacks />
+        <Career />
       </div>
     </article>
   );
