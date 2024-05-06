@@ -1,5 +1,7 @@
 export const EXPERIENCE_CONSTANTS: {
   content: string;
+  isLinked?: boolean;
+  href?: string;
 }[] = [
   {
     content:
@@ -7,6 +9,8 @@ export const EXPERIENCE_CONSTANTS: {
   },
   {
     content: "Next.js를 이용한 풀스택 CRUD경험",
+    isLinked: true,
+    href: "https://jurgen-94.tistory.com/category/NextJS/NextJS%20-%20ToDoList",
   },
   {
     content: "webpack 모듈 번들러 config 세팅",

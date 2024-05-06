@@ -19,7 +19,7 @@ const AboutMe = () => {
         <Image
           src={AboutMeImage}
           alt="about-me-image"
-          className="m-0"
+          className="m-0 w-[268px]"
         />
         <div>
           <h1 className="mb-2 text-xl font-thin dark:text-gray02">
