@@ -7,9 +7,9 @@ import { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import { Tag } from "@/components/tag";
 
-import { CommentType } from "@/types/comment.types";
-import { CommentBundle } from "@/components/comments/comment-bundle";
-import { LikeButton } from "@/components/like/like-button";
+// import { CommentType } from "@/types/comment.types";
+// import { CommentBundle } from "@/components/comments/comment-bundle";
+// import { LikeButton } from "@/components/like/like-button";
 import { formatDate } from "@/lib/utils";
 
 interface PostPageProps {
@@ -56,32 +56,32 @@ export async function generateStaticParams(): Promise<
   }));
 }
 
-const getPostData = async (
-  params: PostPageProps["params"],
-) => {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/posts/${params?.slug[0]}`,
-    {
-      cache: "no-store",
-    },
-  );
-  const data = response.json();
-  return data;
-};
+// const getPostData = async (
+//   params: PostPageProps["params"],
+// ) => {
+//   const response = await fetch(
+//     `${process.env.NEXT_PUBLIC_BASE_URL}/posts/${params?.slug[0]}`,
+//     {
+//       cache: "no-store",
+//     },
+//   );
+//   const data = response.json();
+//   return data;
+// };
 
-const getCommentData = async (
-  id: number,
-): Promise<CommentType[]> => {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/comments/posts/${id}`,
-    {
-      cache: "default",
-    },
-  );
-  const data = response.json();
+// const getCommentData = async (
+//   id: number,
+// ): Promise<CommentType[]> => {
+//   const response = await fetch(
+//     `${process.env.NEXT_PUBLIC_BASE_URL}/comments/posts/${id}`,
+//     {
+//       cache: "default",
+//     },
+//   );
+//   const data = response.json();
 
-  return data;
-};
+//   return data;
+// };
 
 export default async function PostPage({
   params,
@@ -92,10 +92,10 @@ export default async function PostPage({
     notFound();
   }
 
-  const { likes, views, id } =
-    await getPostData(params);
+  // const { likes, views, id } =
+  //   await getPostData(params);
 
-  const comments = await getCommentData(id);
+  // const comments = await getCommentData(id);
 
   return (
     <article className="container prose relative mx-auto max-w-3xl py-10 dark:prose-invert">
@@ -116,19 +116,19 @@ export default async function PostPage({
         </span>
         <span className="font-light text-gray03">
           {formatDate(post?.date)} &middot;&nbsp;
-          {views}회
+          {/* {views}회 */}
         </span>
       </div>
       <hr className="my-4" />
       <div className="tracking-tight text-blogAbsoluteBlack dark:text-gray03">
         <MDXContent code={post.body} />
       </div>
-      <LikeButton likes={likes} postId={id} />
+      {/* <LikeButton likes={likes} postId={id} /> */}
       <hr className="my-[10px] border border-gray06" />
-      <CommentBundle
+      {/* <CommentBundle
         comments={comments}
         postId={id}
-      />
+      /> */}
     </article>
   );
 }
