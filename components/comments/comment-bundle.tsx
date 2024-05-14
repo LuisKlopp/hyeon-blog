@@ -4,6 +4,7 @@ import { CommentInput } from "@/components/comments/comment-input";
 import { CommentTextarea } from "@/components/comments/comment-textarea";
 import { CommentButton } from "@/components/comments/comment-button";
 import { CommentItem } from "@/components/comments/comment-item";
+import { CommentPasswordInput } from "@/components/comments/comment-password-input";
 import { CommentType } from "@/types/comment.types";
 import { useState } from "react";
 
@@ -20,6 +21,7 @@ export const CommentBundle = ({
     useState(comments);
   const [nickname, setNickname] = useState("");
   const [content, setContent] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleAddComment = async () => {
     await fetch(
@@ -44,6 +46,7 @@ export const CommentBundle = ({
       post_id: postId,
       nickname,
       content,
+      password,
       created_at: new Date().toISOString(),
     };
 
@@ -61,6 +64,9 @@ export const CommentBundle = ({
       </span>
       <div className="mt-5 flex flex-col items-end gap-[14px]">
         <CommentInput setNickname={setNickname} />
+        <CommentPasswordInput
+          setPassword={setPassword}
+        />
         <CommentTextarea
           setContent={setContent}
         />
