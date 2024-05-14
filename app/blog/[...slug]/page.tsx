@@ -125,13 +125,10 @@ export default async function PostPage({
       </div>
       <LikeButton likes={likes} postId={id} />
       <hr className="my-[10px] border border-gray06" />
-
-      {comments.length > 0 && (
-        <CommentBundle
-          comments={comments}
-          postId={id}
-        />
-      )}
+      <CommentBundle
+        comments={comments}
+        postId={id}
+      />
     </article>
   );
 }

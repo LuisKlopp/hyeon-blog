@@ -23,6 +23,11 @@ export const CommentBundle = ({
   const [content, setContent] = useState("");
   const [password, setPassword] = useState("");
 
+  const isAbledClick =
+    !!nickname &&
+    !!content &&
+    password.length === 4;
+
   const handleAddComment = async () => {
     await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL}/comments/posts/${postId}`,
@@ -33,6 +38,7 @@ export const CommentBundle = ({
         },
         body: JSON.stringify({
           nickname,
+          password,
           content,
         }),
       },
@@ -55,6 +61,9 @@ export const CommentBundle = ({
       newComment,
     ];
     setCommentList(newCommentList);
+    setNickname("");
+    setContent("");
+    setPassword("");
   };
 
   return (
@@ -63,28 +72,34 @@ export const CommentBundle = ({
         {commentList.length}개의 댓글
       </span>
       <div className="mt-5 flex flex-col items-end gap-[14px]">
-        <CommentInput setNickname={setNickname} />
+        <CommentInput
+          nickname={nickname}
+          setNickname={setNickname}
+        />
         <CommentPasswordInput
+          password={password}
           setPassword={setPassword}
         />
         <CommentTextarea
+          content={content}
           setContent={setContent}
         />
         <CommentButton
           handleAddComment={handleAddComment}
-          setNickname={setNickname}
-          setContent={setContent}
+          isAbledClick={isAbledClick}
         />
-        <div className="mt-10 w-full">
-          {commentList.map((comment) => (
-            <CommentItem
-              key={comment.id}
-              nickname={comment.nickname}
-              content={comment.content}
-              created_at={comment.created_at}
-            />
-          ))}
-        </div>
+        {!!commentList && (
+          <div className="mt-10 w-full">
+            {commentList.map((comment) => (
+              <CommentItem
+                key={comment.id}
+                nickname={comment.nickname}
+                content={comment.content}
+                created_at={comment.created_at}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </>
   );

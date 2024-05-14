@@ -3,10 +3,12 @@
 import { Dispatch, SetStateAction } from "react";
 
 interface CommentPasswordInputProps {
+  password: string;
   setPassword: Dispatch<SetStateAction<string>>;
 }
 
 export const CommentPasswordInput = ({
+  password,
   setPassword,
 }: CommentPasswordInputProps) => {
   const handleChange = (
@@ -16,6 +18,7 @@ export const CommentPasswordInput = ({
   };
   return (
     <input
+      value={password}
       className="input-custom dark:border-gray06 dark:bg-gray07 dark:placeholder:text-gray05"
       onChange={handleChange}
       placeholder="비밀번호 4자리"
