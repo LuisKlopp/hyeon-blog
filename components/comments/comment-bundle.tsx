@@ -85,6 +85,7 @@ export const CommentBundle = ({
           setContent={setContent}
         />
         <CommentButton
+          label="댓글 등록"
           handleClick={handleAddComment}
           isAbledClick={isAbledClick}
         />

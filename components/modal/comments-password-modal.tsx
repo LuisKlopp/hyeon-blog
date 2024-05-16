@@ -11,11 +11,34 @@ interface CommentsPasswordModal {
 const CommentsPasswordModal = ({
   commentId,
 }: CommentsPasswordModal) => {
-  console.log(commentId);
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] =
+    useState("");
 
   const isAbledClick = password.length === 4;
-  const handleClick = async () => {};
+
+  const handleVerifyPassword = async () => {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/comments/check-password/${commentId}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          password,
+        }),
+      },
+    );
+    const data = await response.json();
+    if (response.ok) {
+      return data;
+    } else {
+      setErrorMessage("비밀번호가 틀렸습니다");
+      return false;
+    }
+  };
+
   return (
     <div className="modal-background fixed left-0 top-0 z-30 flex h-full w-screen items-center justify-center">
       <div className="fixed flex w-[90%] max-w-[600px] flex-col gap-4 rounded-lg border border-gray04 bg-black p-4">
@@ -29,9 +52,17 @@ const CommentsPasswordModal = ({
           />
         </div>
         <div className="text-right">
+          {errorMessage && (
+            <div className="flex">
+              <span className=" text-red-500">
+                비밀번호가 틀렸습니다.
+              </span>
+            </div>
+          )}
           <CommentButton
+            label="입력"
             isAbledClick={isAbledClick}
-            handleClick={handleClick}
+            handleClick={handleVerifyPassword}
           />
         </div>
       </div>
