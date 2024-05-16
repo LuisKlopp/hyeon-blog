@@ -41,8 +41,8 @@ const CommentsPasswordModal = ({
 
   return (
     <div className="modal-background fixed left-0 top-0 z-30 flex h-full w-screen items-center justify-center">
-      <div className="fixed flex w-[90%] max-w-[600px] flex-col gap-4 rounded-lg border border-gray04 bg-black p-4">
-        <span className="text-gray02">
+      <div className="fixed flex w-[90%] max-w-[600px] flex-col gap-4 rounded-lg border bg-white p-4 dark:border-gray04 dark:bg-black">
+        <span className="dark:text-gray02">
           댓글 비밀번호를 입력해주세요
         </span>
         <div className="h-10">
@@ -54,7 +54,7 @@ const CommentsPasswordModal = ({
         <div className="text-right">
           {errorMessage && (
             <div className="flex">
-              <span className=" text-red-500">
+              <span className="text-blogThickRed dark:text-red-500">
                 비밀번호가 틀렸습니다.
               </span>
             </div>
