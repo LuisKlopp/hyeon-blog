@@ -19,7 +19,8 @@ export const CommentItem = ({
   commentId,
 }: CommentProps) => {
   const [date, setDate] = useState<string>("");
-  const { isModal, openModal } = useModal();
+  const { isModal, openModal, closeModal } =
+    useModal();
 
   useEffect(() => {
     setDate(formatDate(created_at));
@@ -57,6 +58,7 @@ export const CommentItem = ({
       <hr className="my-5 h-[1px] border-none bg-gray02" />
       {isModal && (
         <CommentsPasswordModal
+          closeModal={closeModal}
           commentId={commentId}
         />
       )}

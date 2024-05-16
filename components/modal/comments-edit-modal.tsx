@@ -3,5 +3,5 @@
 import React from "react";
 
 export const CommentsEditModal = () => {
-  return <div className="absoulte"></div>;
+  return <div className="absolute"></div>;
 };

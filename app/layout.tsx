@@ -35,6 +35,7 @@ export default function RootLayout({
           storageKey="blog-theme"
         >
           <MainLayout>{children}</MainLayout>
+          <div id="modal-root" />
         </ThemeProvider>
       </body>
     </html>
