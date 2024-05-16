@@ -1,6 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, {
+  useEffect,
+  useState,
+} from "react";
 import { CommentPasswordInput } from "@/components/comments/comment-password-input";
 import { CommentButton } from "../comments/comment-button";
 
@@ -39,9 +42,26 @@ const CommentsPasswordModal = ({
     }
   };
 
+  useEffect(() => {
+    document.body.style.cssText = `
+      position: fixed;
+      top: -${window.scrollY}px;
+      overflow-y: scroll;
+      width: 100%;
+    `;
+    return () => {
+      const scrollY = document.body.style.top;
+      document.body.style.cssText = ``;
+      window.scrollTo(
+        0,
+        parseInt(scrollY || "0", 10) * -1,
+      );
+    };
+  }, []);
+
   return (
     <div className="modal-background fixed left-0 top-0 z-30 flex h-full w-screen items-center justify-center">
-      <div className="fixed flex w-[90%] max-w-[600px] flex-col gap-4 rounded-lg border bg-white p-4 dark:border-gray04 dark:bg-black">
+      <div className="fixed flex w-[90%] max-w-[600px] flex-col gap-4 rounded-lg border bg-white p-4 dark:bg-gray07">
         <span className="dark:text-gray02">
           댓글 비밀번호를 입력해주세요
         </span>
