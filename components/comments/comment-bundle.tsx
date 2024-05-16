@@ -85,7 +85,7 @@ export const CommentBundle = ({
           setContent={setContent}
         />
         <CommentButton
-          handleAddComment={handleAddComment}
+          handleClick={handleAddComment}
           isAbledClick={isAbledClick}
         />
         {!!commentList && (

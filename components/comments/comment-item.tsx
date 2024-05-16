@@ -2,6 +2,8 @@
 
 import { formatDate } from "@/lib/utils";
 import { useEffect, useState } from "react";
+import useModal from "@/hooks/useModal";
+import { CommentsPasswordModal } from "../modal/comments-password-modal";
 
 interface CommentProps {
   nickname: string;
@@ -15,6 +17,7 @@ export const CommentItem = ({
   created_at,
 }: CommentProps) => {
   const [date, setDate] = useState<string>("");
+  const { isModal, openModal } = useModal();
 
   useEffect(() => {
     setDate(formatDate(created_at));
@@ -32,9 +35,16 @@ export const CommentItem = ({
           </span>
         </div>
         <div className="text-xs text-gray02">
-          <span>수정</span>
+          <span
+            className="cursor-pointer hover:underline"
+            onClick={openModal}
+          >
+            수정
+          </span>
           <span> | </span>
-          <span>삭제</span>
+          <span className="cursor-pointer hover:underline">
+            삭제
+          </span>
         </div>
       </div>
       <div className="flex">
@@ -43,6 +53,7 @@ export const CommentItem = ({
         </span>
       </div>
       <hr className="my-5 h-[1px] border-none bg-gray02" />
+      {isModal && <CommentsPasswordModal />}
     </div>
   );
 };

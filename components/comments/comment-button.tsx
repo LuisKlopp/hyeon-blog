@@ -1,22 +1,18 @@
 "use client";
 
 interface CommentButtonProps {
-  handleAddComment: () => Promise<void>;
-  isAbledClick: boolean;
+  handleClick: () => Promise<void>;
+  isAbledClick?: boolean;
 }
 
 export const CommentButton = ({
-  handleAddComment,
+  handleClick,
   isAbledClick,
 }: CommentButtonProps) => {
-  const handleClick = async () => {
-    await handleAddComment();
-  };
-
   return (
     <button
       disabled={!isAbledClick}
-      onClick={handleClick}
+      onClick={() => handleClick()}
       className="h-10 w-24 rounded-lg bg-gray07 px-5 py-1 text-sm tracking-[-1px] text-white dark:bg-gray06"
     >
       댓글 작성
