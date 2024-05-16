@@ -9,12 +9,14 @@ interface CommentProps {
   nickname: string;
   content: string;
   created_at: string;
+  commentId: number;
 }
 
 export const CommentItem = ({
   nickname,
   content,
   created_at,
+  commentId,
 }: CommentProps) => {
   const [date, setDate] = useState<string>("");
   const { isModal, openModal } = useModal();
@@ -53,7 +55,11 @@ export const CommentItem = ({
         </span>
       </div>
       <hr className="my-5 h-[1px] border-none bg-gray02" />
-      {isModal && <CommentsPasswordModal />}
+      {isModal && (
+        <CommentsPasswordModal
+          commentId={commentId}
+        />
+      )}
     </div>
   );
 };

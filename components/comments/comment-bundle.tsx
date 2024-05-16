@@ -96,6 +96,7 @@ export const CommentBundle = ({
                 nickname={comment.nickname}
                 content={comment.content}
                 created_at={comment.created_at}
+                commentId={comment.id}
               />
             ))}
           </div>
