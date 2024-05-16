@@ -17,13 +17,16 @@ export const CommentPasswordInput = ({
     setPassword(e.target.value);
   };
   return (
-    <input
-      value={password}
-      className="input-custom dark:border-gray06 dark:bg-gray07 dark:placeholder:text-gray05"
-      onChange={handleChange}
-      placeholder="비밀번호 4자리"
-      type="password"
-      maxLength={4}
-    />
+    <form className="w-full">
+      <input
+        value={password}
+        className="input-custom dark:border-gray06 dark:bg-gray07 dark:placeholder:text-gray05"
+        onChange={handleChange}
+        placeholder="비밀번호 4자리"
+        type="password"
+        maxLength={4}
+        autoComplete="off"
+      />
+    </form>
   );
 };
