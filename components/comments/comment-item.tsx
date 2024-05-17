@@ -3,7 +3,8 @@
 import { formatDate } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import useModal from "@/hooks/useModal";
-import { CommentsPasswordModal } from "../modal/comments-password-modal";
+import { CommentPasswordModal } from "@/components/modal/comments-password-modal";
+import { CommentEditModal } from "@/components/modal/comments-edit-modal";
 
 interface CommentProps {
   nickname: string;
@@ -19,6 +20,10 @@ export const CommentItem = ({
   commentId,
 }: CommentProps) => {
   const [date, setDate] = useState<string>("");
+  const [
+    isVerifiedPassword,
+    setIsVerifiedPassword,
+  ] = useState(false);
   const { isModal, openModal, closeModal } =
     useModal();
 
@@ -57,9 +62,22 @@ export const CommentItem = ({
       </div>
       <hr className="my-5 h-[1px] border-none bg-gray02" />
       {isModal && (
-        <CommentsPasswordModal
+        <CommentPasswordModal
           closeModal={closeModal}
           commentId={commentId}
+          setIsVerifiedPassword={
+            setIsVerifiedPassword
+          }
+        />
+      )}
+      {isVerifiedPassword && (
+        <CommentEditModal
+          nickname={nickname}
+          content={content}
+          commentId={commentId}
+          setIsVerifiedPassword={
+            setIsVerifiedPassword
+          }
         />
       )}
     </div>

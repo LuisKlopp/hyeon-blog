@@ -1,6 +1,8 @@
 "use client";
 
 import React, {
+  Dispatch,
+  SetStateAction,
   useEffect,
   useState,
 } from "react";
@@ -8,16 +10,21 @@ import { CommentPasswordInput } from "@/components/comments/comment-password-inp
 import { CommentButton } from "../comments/comment-button";
 import Portal from "./portal";
 
-interface CommentsPasswordModal {
+interface CommentPasswordModalProps {
   commentId: number;
   closeModal: () => void;
+  setIsVerifiedPassword: Dispatch<
+    SetStateAction<boolean>
+  >;
 }
 
-const CommentsPasswordModal = ({
+const CommentPasswordModal = ({
   closeModal,
   commentId,
-}: CommentsPasswordModal) => {
+  setIsVerifiedPassword,
+}: CommentPasswordModalProps) => {
   const [password, setPassword] = useState("");
+
   const [errorMessage, setErrorMessage] =
     useState("");
 
@@ -38,6 +45,8 @@ const CommentsPasswordModal = ({
     );
     const data = await response.json();
     if (response.ok) {
+      setIsVerifiedPassword(true);
+      closeModal();
       return data;
     } else {
       setErrorMessage("비밀번호가 틀렸습니다");
@@ -94,4 +103,4 @@ const CommentsPasswordModal = ({
   );
 };
 
-export { CommentsPasswordModal };
+export { CommentPasswordModal };
