@@ -29,7 +29,7 @@ export const CommentBundle = ({
     password.length === 4;
 
   const handleAddComment = async () => {
-    await fetch(
+    const response = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL}/comments/posts/${postId}`,
       {
         method: "POST",
@@ -44,22 +44,13 @@ export const CommentBundle = ({
       },
     );
 
-    const newComment = {
-      id: commentList.length
-        ? commentList[commentList.length - 1].id +
-          1
-        : 1,
-      post_id: postId,
-      nickname,
-      content,
-      password,
-      created_at: new Date().toISOString(),
-    };
+    const newComment = await response.json();
 
     const newCommentList = [
       ...commentList,
       newComment,
     ];
+
     setCommentList(newCommentList);
     setNickname("");
     setContent("");
