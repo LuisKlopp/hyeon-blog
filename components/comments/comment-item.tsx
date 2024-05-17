@@ -1,16 +1,26 @@
 "use client";
 
 import { formatDate } from "@/lib/utils";
-import { useEffect, useState } from "react";
+import {
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useState,
+} from "react";
 import useModal from "@/hooks/useModal";
 import { CommentPasswordModal } from "@/components/modal/comments-password-modal";
 import { CommentEditModal } from "@/components/modal/comments-edit-modal";
+import { CommentType } from "@/types/comment.types";
 
 interface CommentProps {
   nickname: string;
   content: string;
   created_at: string;
   commentId: number;
+  commentList: CommentType[];
+  setCommentList: Dispatch<
+    SetStateAction<CommentType[]>
+  >;
 }
 
 export const CommentItem = ({
@@ -18,6 +28,8 @@ export const CommentItem = ({
   content,
   created_at,
   commentId,
+  commentList,
+  setCommentList,
 }: CommentProps) => {
   const [date, setDate] = useState<string>("");
   const [
@@ -78,6 +90,8 @@ export const CommentItem = ({
           setIsVerifiedPassword={
             setIsVerifiedPassword
           }
+          commentList={commentList}
+          setCommentList={setCommentList}
         />
       )}
     </div>

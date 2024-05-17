@@ -98,6 +98,8 @@ export const CommentBundle = ({
                 content={comment.content}
                 created_at={comment.created_at}
                 commentId={comment.id}
+                commentList={commentList}
+                setCommentList={setCommentList}
               />
             ))}
           </div>

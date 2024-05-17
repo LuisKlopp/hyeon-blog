@@ -9,6 +9,9 @@ import React, {
 import { CommentPasswordInput } from "@/components/comments/comment-password-input";
 import { CommentButton } from "../comments/comment-button";
 import Portal from "./portal";
+import { CommentTextarea } from "../comments/comment-textarea";
+import { CommentInput } from "../comments/comment-input";
+import { CommentType } from "@/types/comment.types";
 
 interface CommentEditModalProps {
   nickname: string;
@@ -17,41 +20,67 @@ interface CommentEditModalProps {
   setIsVerifiedPassword: Dispatch<
     SetStateAction<boolean>
   >;
+  commentList: CommentType[];
+  setCommentList: Dispatch<
+    SetStateAction<CommentType[]>
+  >;
 }
 
 const CommentEditModal = ({
   nickname,
   content,
   commentId,
+  commentList,
+  setCommentList,
   setIsVerifiedPassword,
 }: CommentEditModalProps) => {
+  const [editNickname, setEditNickname] =
+    useState(nickname);
+  const [editContent, setEditContent] =
+    useState(content);
   const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] =
-    useState("");
 
   const handleCloseModal = () =>
     setIsVerifiedPassword(false);
 
-  const isAbledClick = password.length === 4;
+  const isAbledClick =
+    !!editNickname &&
+    !!editContent &&
+    password.length === 4;
 
-  const handleVerifyPassword = async () => {
+  const handleEditComment = async () => {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/comments/check-password/${commentId}`,
+      `${process.env.NEXT_PUBLIC_BASE_URL}/comments/${commentId}`,
       {
-        method: "POST",
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+          nickname: editNickname,
           password,
+          content: editContent,
         }),
       },
     );
+    const updatedCommentList = commentList.map(
+      (comment) => {
+        if (comment.id === commentId) {
+          return {
+            ...comment,
+            nickname: editNickname,
+            content: editContent,
+          };
+        }
+        return comment;
+      },
+    );
+    setCommentList(updatedCommentList);
     const data = await response.json();
     if (response.ok) {
+      handleCloseModal();
       return data;
     } else {
-      setErrorMessage("비밀번호가 틀렸습니다");
       return false;
     }
   };
@@ -72,32 +101,36 @@ const CommentEditModal = ({
         />
         <div className="fixed z-40 flex w-[90%] max-w-[600px] flex-col gap-4 rounded-lg border bg-white p-4 dark:bg-gray07">
           <div className="absolute right-3 top-2">
-            Edit Modal
             <button onClick={handleCloseModal}>
               X
             </button>
           </div>
           <span className="dark:text-gray02">
-            댓글 비밀번호를 입력해주세요
+            댓글 수정
           </span>
+          <div className="h-10">
+            <CommentInput
+              nickname={editNickname}
+              setNickname={setEditNickname}
+            />
+          </div>
           <div className="h-10">
             <CommentPasswordInput
               password={password}
               setPassword={setPassword}
             />
           </div>
+          <div className="h-24">
+            <CommentTextarea
+              content={editContent}
+              setContent={setEditContent}
+            />
+          </div>
           <div className="text-right">
-            {errorMessage && (
-              <div className="flex">
-                <span className="text-blogThickRed dark:text-red-500">
-                  비밀번호가 틀렸습니다.
-                </span>
-              </div>
-            )}
             <CommentButton
               label="입력"
               isAbledClick={isAbledClick}
-              handleClick={handleVerifyPassword}
+              handleClick={handleEditComment}
             />
           </div>
         </div>
