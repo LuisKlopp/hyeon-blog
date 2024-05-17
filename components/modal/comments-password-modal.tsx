@@ -63,10 +63,6 @@ const CommentPasswordModal = ({
   };
 
   const handleDeleteComment = async () => {
-    const deletedCommentList = commentList.filter(
-      (comment) => comment.id !== commentId,
-    );
-    setCommentList(deletedCommentList);
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL}/comments/${commentId}`,
       {
@@ -79,7 +75,16 @@ const CommentPasswordModal = ({
         }),
       },
     );
-    if (response.ok) return closeModal();
+
+    if (response.ok) {
+      const deletedCommentList =
+        commentList.filter(
+          (comment) => comment.id !== commentId,
+        );
+      setCommentList(deletedCommentList);
+      closeModal();
+      return;
+    }
     setErrorMessage("비밀번호가 틀렸습니다.");
   };
 
