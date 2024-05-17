@@ -54,14 +54,12 @@ const CommentsPasswordModal = ({
 
   return (
     <Portal elementId="modal-root">
-      <div
-        className="modal-background fixed left-0 top-0 z-30 flex h-full w-screen items-center justify-center"
-        onClick={closeModal}
-      >
+      <div className="absolute left-0 top-0 z-20 flex h-full w-full items-center justify-center">
         <div
-          className="fixed flex w-[90%] max-w-[600px] flex-col gap-4 rounded-lg border bg-white p-4 dark:bg-gray07"
-          onClick={(e) => e.stopPropagation()}
-        >
+          onClick={closeModal}
+          className="modal-background fixed left-0 top-0 z-30 flex h-full w-screen items-center justify-center"
+        />
+        <div className="fixed z-40 flex w-[90%] max-w-[600px] flex-col gap-4 rounded-lg border bg-white p-4 dark:bg-gray07">
           <div className="absolute right-3 top-2">
             <button onClick={closeModal}>
               X
