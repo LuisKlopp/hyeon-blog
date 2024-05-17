@@ -4,6 +4,7 @@ import { CommentInput } from "@/components/comments/comment-input";
 import { CommentTextarea } from "@/components/comments/comment-textarea";
 import { CommentButton } from "@/components/comments/comment-button";
 import { CommentItem } from "@/components/comments/comment-item";
+import { CommentPasswordInput } from "@/components/comments/comment-password-input";
 import { CommentType } from "@/types/comment.types";
 import { useState } from "react";
 
@@ -20,6 +21,12 @@ export const CommentBundle = ({
     useState(comments);
   const [nickname, setNickname] = useState("");
   const [content, setContent] = useState("");
+  const [password, setPassword] = useState("");
+
+  const isAbledClick =
+    !!nickname &&
+    !!content &&
+    password.length === 4;
 
   const handleAddComment = async () => {
     await fetch(
@@ -31,6 +38,7 @@ export const CommentBundle = ({
         },
         body: JSON.stringify({
           nickname,
+          password,
           content,
         }),
       },
@@ -44,6 +52,7 @@ export const CommentBundle = ({
       post_id: postId,
       nickname,
       content,
+      password,
       created_at: new Date().toISOString(),
     };
 
@@ -52,6 +61,9 @@ export const CommentBundle = ({
       newComment,
     ];
     setCommentList(newCommentList);
+    setNickname("");
+    setContent("");
+    setPassword("");
   };
 
   return (
@@ -60,25 +72,38 @@ export const CommentBundle = ({
         {commentList.length}개의 댓글
       </span>
       <div className="mt-5 flex flex-col items-end gap-[14px]">
-        <CommentInput setNickname={setNickname} />
+        <CommentInput
+          nickname={nickname}
+          setNickname={setNickname}
+        />
+        <CommentPasswordInput
+          password={password}
+          setPassword={setPassword}
+        />
         <CommentTextarea
+          content={content}
           setContent={setContent}
         />
         <CommentButton
-          handleAddComment={handleAddComment}
-          setNickname={setNickname}
-          setContent={setContent}
+          label="댓글 등록"
+          handleClick={handleAddComment}
+          isAbledClick={isAbledClick}
         />
-        <div className="mt-10 w-full">
-          {commentList.map((comment) => (
-            <CommentItem
-              key={comment.id}
-              nickname={comment.nickname}
-              content={comment.content}
-              created_at={comment.created_at}
-            />
-          ))}
-        </div>
+        {!!commentList && (
+          <div className="mt-10 w-full">
+            {commentList.map((comment) => (
+              <CommentItem
+                key={comment.id}
+                nickname={comment.nickname}
+                content={comment.content}
+                created_at={comment.created_at}
+                commentId={comment.id}
+                commentList={commentList}
+                setCommentList={setCommentList}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </>
   );

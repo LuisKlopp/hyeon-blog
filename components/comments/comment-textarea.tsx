@@ -3,10 +3,12 @@
 import { Dispatch, SetStateAction } from "react";
 
 interface CommentTextareaProps {
+  content: string;
   setContent: Dispatch<SetStateAction<string>>;
 }
 
 export const CommentTextarea = ({
+  content,
   setContent,
 }: CommentTextareaProps) => {
   const handleChange = (
@@ -19,6 +21,7 @@ export const CommentTextarea = ({
       className="input-custom  h-[100px] resize-none dark:border-gray06 dark:bg-gray07 dark:placeholder:text-gray05"
       onChange={handleChange}
       placeholder="댓글을 작성하세요"
+      value={content}
     />
   );
 };
