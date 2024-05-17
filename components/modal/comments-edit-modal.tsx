@@ -7,10 +7,10 @@ import React, {
   useState,
 } from "react";
 import { CommentPasswordInput } from "@/components/comments/comment-password-input";
-import { CommentButton } from "../comments/comment-button";
+import { CommentButton } from "@/components/comments/comment-button";
 import Portal from "./portal";
-import { CommentTextarea } from "../comments/comment-textarea";
-import { CommentInput } from "../comments/comment-input";
+import { CommentTextarea } from "@/components/comments/comment-textarea";
+import { CommentInput } from "@/components/comments/comment-input";
 import { CommentType } from "@/types/comment.types";
 
 interface CommentEditModalProps {

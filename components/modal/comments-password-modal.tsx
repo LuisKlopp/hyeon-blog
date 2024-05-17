@@ -7,7 +7,7 @@ import React, {
   useState,
 } from "react";
 import { CommentPasswordInput } from "@/components/comments/comment-password-input";
-import { CommentButton } from "../comments/comment-button";
+import { CommentButton } from "@/components/comments/comment-button";
 import Portal from "./portal";
 
 interface CommentPasswordModalProps {
@@ -16,12 +16,14 @@ interface CommentPasswordModalProps {
   setIsVerifiedPassword: Dispatch<
     SetStateAction<boolean>
   >;
+  type: "Edit" | "Delete";
 }
 
 const CommentPasswordModal = ({
   closeModal,
   commentId,
   setIsVerifiedPassword,
+  type,
 }: CommentPasswordModalProps) => {
   const [password, setPassword] = useState("");
 
@@ -48,10 +50,26 @@ const CommentPasswordModal = ({
       setIsVerifiedPassword(true);
       closeModal();
       return data;
-    } else {
-      setErrorMessage("비밀번호가 틀렸습니다");
-      return false;
     }
+    setErrorMessage("비밀번호가 틀렸습니다");
+    return false;
+  };
+
+  const handleDeleteComment = async () => {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/comments/${commentId}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          password,
+        }),
+      },
+    );
+    if (response.ok) return closeModal();
+    setErrorMessage("비밀번호가 틀렸습니다.");
   };
 
   useEffect(() => {
@@ -94,7 +112,11 @@ const CommentPasswordModal = ({
             <CommentButton
               label="입력"
               isAbledClick={isAbledClick}
-              handleClick={handleVerifyPassword}
+              handleClick={
+                type === "Edit"
+                  ? handleVerifyPassword
+                  : handleDeleteComment
+              }
             />
           </div>
         </div>

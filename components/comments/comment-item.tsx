@@ -38,10 +38,22 @@ export const CommentItem = ({
   ] = useState(false);
   const { isModal, openModal, closeModal } =
     useModal();
+  const [modalType, setModalType] = useState<
+    "Edit" | "Delete"
+  >("Edit");
 
   useEffect(() => {
     setDate(formatDate(created_at));
   }, [created_at, date]);
+
+  const handleOpenEditModal = () => {
+    openModal();
+  };
+
+  const handleOpenDeleteModal = () => {
+    setModalType("Delete");
+    openModal();
+  };
 
   return (
     <div className="flex flex-col">
@@ -57,12 +69,15 @@ export const CommentItem = ({
         <div className="text-xs text-gray02">
           <span
             className="cursor-pointer hover:underline"
-            onClick={openModal}
+            onClick={handleOpenEditModal}
           >
             수정
           </span>
           <span> | </span>
-          <span className="cursor-pointer hover:underline">
+          <span
+            onClick={handleOpenDeleteModal}
+            className="cursor-pointer hover:underline"
+          >
             삭제
           </span>
         </div>
@@ -80,6 +95,7 @@ export const CommentItem = ({
           setIsVerifiedPassword={
             setIsVerifiedPassword
           }
+          type={modalType}
         />
       )}
       {isVerifiedPassword && (
