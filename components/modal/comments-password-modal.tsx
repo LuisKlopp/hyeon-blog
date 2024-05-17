@@ -9,6 +9,7 @@ import React, {
 import { CommentPasswordInput } from "@/components/comments/comment-password-input";
 import { CommentButton } from "@/components/comments/comment-button";
 import Portal from "./portal";
+import { CommentType } from "@/types/comment.types";
 
 interface CommentPasswordModalProps {
   commentId: number;
@@ -17,6 +18,10 @@ interface CommentPasswordModalProps {
     SetStateAction<boolean>
   >;
   type: "Edit" | "Delete";
+  commentList: CommentType[];
+  setCommentList: Dispatch<
+    SetStateAction<CommentType[]>
+  >;
 }
 
 const CommentPasswordModal = ({
@@ -24,6 +29,8 @@ const CommentPasswordModal = ({
   commentId,
   setIsVerifiedPassword,
   type,
+  commentList,
+  setCommentList,
 }: CommentPasswordModalProps) => {
   const [password, setPassword] = useState("");
 
@@ -56,6 +63,10 @@ const CommentPasswordModal = ({
   };
 
   const handleDeleteComment = async () => {
+    const deletedCommentList = commentList.filter(
+      (comment) => comment.id !== commentId,
+    );
+    setCommentList(deletedCommentList);
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL}/comments/${commentId}`,
       {

@@ -96,6 +96,8 @@ export const CommentItem = ({
             setIsVerifiedPassword
           }
           type={modalType}
+          commentList={commentList}
+          setCommentList={setCommentList}
         />
       )}
       {isVerifiedPassword && (
